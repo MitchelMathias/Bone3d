@@ -4,15 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilos/styles.css">
-    <title>3D Object Viewer</title>
+    <link rel="stylesheet" href="lib/bootstrap.min.css">
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <title>3D Object Viewer</title>
 </head>
 <body>
     <main>
         <section>
             <article class="config">
                 <div class="configs">
-                    <p>Teste som</p>
+                    <form action="#">
+                        <label class="form-label" for="tipo_tecido">Tipo de Tecido:</label>
+                        <select class="form-select" name="tipo_tecido" id="tipo_tecido">
+                            <option value="Algodao">Algodão</option>
+                            <option value="Poliester">Poliester</option>
+                            <option value="Lona">Lona</option>
+                        </select>
+                        <label class="form-label" for="tipo_fecho">Tipo de fecho:</label>
+                        <select class="form-select" name="tipo_tecido" id="tipo_tecido">
+                            <option value="snapback">Snapback</option>
+                            <option value="naosei">Não Sei</option>
+                        </select>
+                        <label class="mt-3" for="cor">Cor do bone:</label>
+                        <div class="cores_corpo">
+                            <div value="rgb(0, 0, 0)" tabindex="0" style="background-color: rgb(0, 0, 0);" class="cor"></div>
+                            <div value="rgb(128, 128, 128)" tabindex="0" style="background-color: rgb(128, 128, 128);" class="cor"></div>
+                            <div value="rgb(255, 165, 0)" tabindex="0" style="background-color: rgb(255, 165, 0);" class="cor"></div>
+                            <div value="rgb(65, 105, 225)" tabindex="0" style="background-color: rgb(65, 105, 225);" class="cor"></div>
+                        </div>
+                        <label class="mt-3" for="cor">Cor da Aba:</label>
+                        <div class="cores_aba">
+                            <div value="rgb(0, 0, 0);" tabindex="0" style="background-color: rgb(0, 0, 0);" class="cor"></div>
+                            <div value="rgb(128, 128, 128)" tabindex="0" style="background-color: rgb(128, 128, 128);" class="cor"></div>
+                            <div value="rgb(255, 165, 0)" tabindex="0" style="background-color: rgb(255, 165, 0);" class="cor"></div>
+                            <div value="rgb(65, 105, 225)" tabindex="0" style="background-color: rgb(65, 105, 225);" class="cor"></div>
+                        </div>
+                        <button class="btn btn-primary my-3" type="submit">Enviar</button>
+                        <button class="btn btn-primary my-3" type="reset">Redefinir</button>
+                    </form>
                 </div>
             </article>
             <article class="modelo">
@@ -30,6 +59,8 @@
             </article>
         </section>
     </main>
+    <script src="lib/bootstrap.bundle.min.js"></script>
+    <script src="lib/jquery-3.7.1.min.js"></script>
     <script src="script/scripts.js"></script>
 </body>
 </html>

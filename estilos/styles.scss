@@ -26,4 +26,22 @@ section{
         text-align: end;
         width: 80%;
     }
+    form{
+        .cores_corpo, .cores_aba{
+            display: flex;
+            justify-content: start;
+            width: 100%;
+            margin: auto;
+            .cor{
+                border-radius: 50%;
+                margin: 5px;
+                border: 1px solid black;
+                width: 30px;
+                height: 30px;
+                &:focus{
+                    border: 3px solid rgb(34, 196, 144);
+                }
+            }
+        }
+    }
 }
