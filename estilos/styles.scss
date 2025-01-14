@@ -28,7 +28,29 @@ section{
     }
     form{
         .cores_corpo, .cores_aba{
-            
+            input[type='radio']{
+                appearance: none;
+                border-radius: 50%;
+                border: 1px solid black;
+                margin: 5px;
+                width: 25px;
+                height: 25px;
+                &:checked{
+                    appearance: radio;
+                }
+            }
+            #cor_bone_black, #cor_aba_black{
+                background-color: black;
+            }
+            #cor_bone_gray, #cor_aba_gray{
+                background-color:rgb(128, 128, 128);
+            }
+            #cor_bone_orange, #cor_aba_orange{
+                background-color:rgb(255, 165, 0);
+            }
+            #cor_bone_blue, #cor_aba_blue{
+                background-color:rgb(65, 105, 225);
+            }
         }
     }
 }
