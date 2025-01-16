@@ -3,64 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilos/styles.css">
-    <link rel="stylesheet" href="lib/bootstrap.min.css">
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-    <title>3D Object Viewer</title>
+    <title>Visualizador de Modelo 3D</title>
+    <link href="style.css" rel="stylesheet"> <!-- Link para o arquivo CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js" defer></script>
 </head>
 <body>
-    <main>
-        <section>
-            <article class="config">
-                <div class="configs">
-                    <form action="#">
-                        <label class="form-label" for="tipo_tecido">Tipo de Tecido:</label>
-                        <select class="form-select" name="tipo_tecido" id="tipo_tecido">
+
+<!-- Container Principal -->
+<div class="container">
+    <div class="row justify-content-center">
+        <!-- Menu de Controle -->
+        <div class="col-md-4">
+            <div class="menu-container">
+                <h2>Controle de Modelo</h2>
+                <form id="controls-form">
+                    <!-- Tipo de Tecido -->
+                    <div class="mb-4">
+                        <label for="tipo_tecido" class="form-label">Tipo de Tecido</label>
+                        <select class="form-select" id="tipo_tecido">
                             <option value="Algodao">Algodão</option>
-                            <option value="Poliester">Poliester</option>
+                            <option value="Poliester">Poliéster</option>
                             <option value="Lona">Lona</option>
                         </select>
-                        <label class="form-label" for="tipo_fecho">Tipo de fecho:</label>
-                        <select class="form-select" name="tipo_tecido" id="tipo_tecido">
+                    </div>
+
+                    <!-- Tipo de Fecho -->
+                    <div class="mb-4">
+                        <label for="tipo_fecho" class="form-label">Tipo de Fecho</label>
+                        <select class="form-select" id="tipo_fecho">
                             <option value="snapback">Snapback</option>
-                            <option value="naosei">Não Sei</option>
+                            <option value="bucket">Bucket</option>
                         </select>
-                        <label class="mt-3" for="cor_bone">Cor do Boné:</label>
-                        <div class="cores_corpo">
-                            <input title="preto" type="radio" name="cor_bone" value="rgb(0, 0, 0)" id="cor_bone_black" class="cor-input" />
-                            <input title="cinza" type="radio" name="cor_bone" value="rgb(128, 128, 128)" id="cor_bone_gray" class="cor-input" />
-                            <input title="laranja" type="radio" name="cor_bone" value="rgb(255, 165, 0)" id="cor_bone_orange" class="cor-input" />
-                            <input title="azul" type="radio" name="cor_bone" value="rgb(65, 105, 225)" id="cor_bone_blue" class="cor-input" />
-                        </div>
-                        <label class="mt-3" for="cor_aba">Cor da Aba:</label>
-                        <div class="cores_aba">
-                            <input title="preto" type="radio" name="cor_aba" value="rgb(0, 0, 0)" id="cor_aba_black" class="cor-input" />
-                            <input title="cinza" type="radio" name="cor_aba" value="rgb(128, 128, 128)" id="cor_aba_gray" class="cor-input" />
-                            <input title="laranja" type="radio" name="cor_aba" value="rgb(255, 165, 0)" id="cor_aba_orange" class="cor-input" />
-                            <input title="azul" type="radio" name="cor_aba" value="rgb(65, 105, 225)" id="cor_aba_blue" class="cor-input" />
-                        </div>
-                        <button class="btn btn-primary my-3" type="submit">Enviar</button>
-                        <button class="btn btn-primary my-3" type="reset">Redefinir</button>
-                    </form>
-                </div>
-            </article>
-            <article class="modelo">
-                <model-viewer
-                    id="viewer"
-                    src="imagens/bone.glb"
-                    alt="bone"
-                    auto-rotate
-                    camera-controls
-                    style="width: 100%; height: 100%;"
-                    camera-orbit="0deg 75deg 100m"
-                    environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.hdr"
-                    field-of-view="30deg">
-                </model-viewer>
-            </article>
-        </section>
-    </main>
-    <script src="lib/bootstrap.bundle.min.js"></script>
-    <script src="lib/jquery-3.7.1.min.js"></script>
-    <script src="script/scripts.js"></script>
+                    </div>
+
+                    <!-- Cor do Corpo -->
+                    <div class="mb-4">
+                        <label for="cor_corpo" class="form-label">Cor do Corpo</label>
+                        <input type="color" id="cor_corpo" class="form-control" value="#ff0000">
+                    </div>
+
+                    <!-- Cor da Aba -->
+                    <div class="mb-4">
+                        <label for="cor_aba" class="form-label">Cor da Aba</label>
+                        <input type="color" id="cor_aba" class="form-control" value="#0000ff">
+                    </div>
+
+                    <!-- Botões -->
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-primary w-48">Aplicar</button>
+                        <button type="reset" class="btn btn-secondary w-48">Redefinir</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Visualizador 3D -->
+        <div class="col-md-8 viewer-container">
+            <model-viewer
+                id="viewer"
+                src="models/untitled.glb"
+                alt="Modelo 3D"
+                auto-rotate
+                camera-controls
+                camera-orbit="0deg 75deg 100m"
+                environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.hdr"
+                shadow-intensity="1"
+                shadow-softness="0.5"
+                style="width: 100%; height: 400px;">
+            </model-viewer>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    $(document).ready(function () {
+        const viewer = document.querySelector('#viewer');
+
+        // Espera o carregamento do modelo para poder modificar
+        viewer.addEventListener('load', function () {
+
+            // Função para converter a cor RGB para o formato normalizado (0-1)
+            function rgbToNormalized(r, g, b) {
+                return [r / 255, g / 255, b / 255];
+            }
+
+            // Alterar a cor do corpo e da aba quando o usuário selecionar uma nova cor
+            $('#cor_corpo').on('input', function () {
+                const corCorpo = this.value; // Pega a cor do corpo selecionada pelo usuário
+                const rgbCorpo = corCorpo.match(/\w\w/g).map(x => parseInt(x, 16));
+                const normalizedCorpo = rgbToNormalized(rgbCorpo[0], rgbCorpo[1], rgbCorpo[2]);
+
+                // Aplica a cor no corpo do modelo
+                viewer.model.materials.forEach((material, index) => {
+                    if (index === 0) { // 0 para o corpo
+                        material.pbrMetallicRoughness.setBaseColorFactor(normalizedCorpo);
+                    }
+                });
+            });
+
+            // Alterar a cor da aba quando o usuário selecionar uma nova cor
+            $('#cor_aba').on('input', function () {
+                const corAba = this.value; // Pega a cor da aba selecionada pelo usuário
+                const rgbAba = corAba.match(/\w\w/g).map(x => parseInt(x, 16));
+                const normalizedAba = rgbToNormalized(rgbAba[0], rgbAba[1], rgbAba[2]);
+
+                // Aplica a cor na aba do modelo
+                viewer.model.materials.forEach((material, index) => {
+                    if (index === 1) { // 1 para a aba
+                        material.pbrMetallicRoughness.setBaseColorFactor(normalizedAba);
+                    }
+                });
+            });
+
+            // Trocar o modelo 3D baseado no tipo de fecho
+            $('#tipo_fecho').change(function () {
+                const selectedValue = $(this).val();
+                if (selectedValue === 'snapback') {
+                    viewer.src = 'models/bone.glb';  // Caminho do modelo Snapback
+                } else if (selectedValue === 'bucket') {
+                    viewer.src = 'models/hat.glb';   // Caminho do modelo Bucket
+                }
+            });
+
+            // Submissão do formulário para enviar os dados para o servidor
+            $('#controls-form').submit(function (e) {
+                e.preventDefault(); // Previne o envio do formulário para que possamos processá-lo via AJAX
+
+                const tipoTecido = $('#tipo_tecido').val();
+                const tipoFecho = $('#tipo_fecho').val();
+                const corCorpo = $('#cor_corpo').val();
+                const corAba = $('#cor_aba').val();
+
+                // Enviar dados via AJAX
+                $.ajax({
+                    url: 'processa_formulario.php',
+                    type: 'POST',
+                    data: {
+                        tipo_tecido: tipoTecido,
+                        tipo_fecho: tipoFecho,
+                        cor_corpo: corCorpo,
+                        cor_aba: corAba
+                    },
+                    success: function (response) {
+                        alert("Dados enviados com sucesso!");
+                        console.log(response);
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Erro ao enviar os dados:", error);
+                    }
+                });
+            });
+        });
+    });
+</script>
+
 </body>
 </html>

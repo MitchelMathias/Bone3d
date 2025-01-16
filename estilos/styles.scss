@@ -7,24 +7,20 @@ section{
     overflow: hidden;
     display: flex;
     border-radius: 40px;
-    margin: auto;
+    margin: auto !important; //aqui não funciona sem important perguntar pro gigi
     margin-top: 40px;
     border: 4px solid black;
     width: 80vw;
-    height: 60vh;
-    .config{
+    height: 70vh;
+    .config{ // porque essa merda fica gigante 
         border-right: 4px solid black;
-        width: 20%;
-        height: 100%;
         .configs{
             margin: 20px;
         }
     }
-    .modelo{
+    .modelo{// porque essa bosta fica pequenininha
         background-color: gray;
-        overflow: hidden;
         text-align: end;
-        width: 80%;
     }
     form{
         .cores_corpo, .cores_aba{

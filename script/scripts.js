@@ -5,7 +5,8 @@ $(document).ready(function () {
     viewer.addEventListener('load', () => {
         // Acessa os materiais do modelo (verifique se o modelo realmente tem materiais na posição indicada)
         const aba_topo = viewer.model.materials[0]; // Acessa o material da aba
-        const corpo = viewer.model.materials[1];    // Acessa o material do corpo
+        const corpo = viewer.model.materials[1]; 
+        const tampa = viewer.model.materials[2]   // Acessa o material do corpo
 
         // Evento para atualizar as cores dinamicamente
         $('.cor-input').on('change', function () {
@@ -19,7 +20,9 @@ $(document).ready(function () {
 
             // Define as cores nos materiais diretamente
             corpo.pbrMetallicRoughness.setBaseColorFactor(cor_corpo);
+            tampa
             aba_topo.pbrMetallicRoughness.setBaseColorFactor(cor_aba);
+
         });
     });
 });
