@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visualizador de Modelo 3D</title>
-    <link href="style.css" rel="stylesheet"> <!-- Link para o arquivo CSS -->
+    <link href="estilo/style.css" rel="stylesheet"> <!-- Link para o arquivo CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js" defer></script>
 </head>
@@ -32,8 +32,13 @@
                     <div class="mb-4">
                         <label for="tipo_fecho" class="form-label">Tipo de Fecho</label>
                         <select class="form-select" id="tipo_fecho">
-                            <option value="snapback">Snapback</option>
-                            <option value="bucket">Bucket</option>
+                            <option value="01_trucker">Trucker</option>
+                            <option value="02_americano">Americano</option>
+                            <option value="03_aba_reta">Aba Reta</option>
+                            <option value="04_new_york">New York</option>
+                            <option value="05_dad_hat">Dad Hat</option>
+                            <option value="06_viseira">Viseira</option>
+                            <option value="07_bucket">Bucket</option>
                         </select>
                     </div>
 
@@ -62,7 +67,7 @@
         <div class="col-md-8 viewer-container">
             <model-viewer
                 id="viewer"
-                src="models/untitled.glb"
+                src="models/01_trucker.glb"
                 alt="Modelo 3D"
                 auto-rotate
                 camera-controls
@@ -77,88 +82,7 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="javaScript/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-    $(document).ready(function () {
-        const viewer = document.querySelector('#viewer');
-
-        // Espera o carregamento do modelo para poder modificar
-        viewer.addEventListener('load', function () {
-
-            // Função para converter a cor RGB para o formato normalizado (0-1)
-            function rgbToNormalized(r, g, b) {
-                return [r / 255, g / 255, b / 255];
-            }
-
-            // Alterar a cor do corpo e da aba quando o usuário selecionar uma nova cor
-            $('#cor_corpo').on('input', function () {
-                const corCorpo = this.value; // Pega a cor do corpo selecionada pelo usuário
-                const rgbCorpo = corCorpo.match(/\w\w/g).map(x => parseInt(x, 16));
-                const normalizedCorpo = rgbToNormalized(rgbCorpo[0], rgbCorpo[1], rgbCorpo[2]);
-
-                // Aplica a cor no corpo do modelo
-                viewer.model.materials.forEach((material, index) => {
-                    if (index === 0) { // 0 para o corpo
-                        material.pbrMetallicRoughness.setBaseColorFactor(normalizedCorpo);
-                    }
-                });
-            });
-
-            // Alterar a cor da aba quando o usuário selecionar uma nova cor
-            $('#cor_aba').on('input', function () {
-                const corAba = this.value; // Pega a cor da aba selecionada pelo usuário
-                const rgbAba = corAba.match(/\w\w/g).map(x => parseInt(x, 16));
-                const normalizedAba = rgbToNormalized(rgbAba[0], rgbAba[1], rgbAba[2]);
-
-                // Aplica a cor na aba do modelo
-                viewer.model.materials.forEach((material, index) => {
-                    if (index === 1) { // 1 para a aba
-                        material.pbrMetallicRoughness.setBaseColorFactor(normalizedAba);
-                    }
-                });
-            });
-
-            // Trocar o modelo 3D baseado no tipo de fecho
-            $('#tipo_fecho').change(function () {
-                const selectedValue = $(this).val();
-                if (selectedValue === 'snapback') {
-                    viewer.src = 'models/bone.glb';  // Caminho do modelo Snapback
-                } else if (selectedValue === 'bucket') {
-                    viewer.src = 'models/hat.glb';   // Caminho do modelo Bucket
-                }
-            });
-
-            // Submissão do formulário para enviar os dados para o servidor
-            $('#controls-form').submit(function (e) {
-                e.preventDefault(); // Previne o envio do formulário para que possamos processá-lo via AJAX
-
-                const tipoTecido = $('#tipo_tecido').val();
-                const tipoFecho = $('#tipo_fecho').val();
-                const corCorpo = $('#cor_corpo').val();
-                const corAba = $('#cor_aba').val();
-
-                // Enviar dados via AJAX
-                $.ajax({
-                    url: 'processa_formulario.php',
-                    type: 'POST',
-                    data: {
-                        tipo_tecido: tipoTecido,
-                        tipo_fecho: tipoFecho,
-                        cor_corpo: corCorpo,
-                        cor_aba: corAba
-                    },
-                    success: function (response) {
-                        alert("Dados enviados com sucesso!");
-                        console.log(response);
-                    },
-                    error: function (xhr, status, error) {
-                        console.error("Erro ao enviar os dados:", error);
-                    }
-                });
-            });
-        });
-    });
-</script>
-
 </body>
 </html>
