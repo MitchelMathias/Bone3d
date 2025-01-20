@@ -29,7 +29,7 @@
         <section class="row m-auto my-5 container config_modelo">
             <div class="col-12 d-flex ">
                 <section class="m-2 config">
-                    <form method="post" class="m-3" action="processa_formulario.php">
+                    <form id="formulario" method="post" class="m-3" action="processa_formulario.php">
                         <div class="d-flex justify-content-start align-items-center mb-2">
                             <label for="fecho">Tipo de Fecho:</label>
                             <select class=" form-select" name="fecho" id="fecho">
@@ -78,7 +78,9 @@
                             <input value="rgb(0, 123, 255)" type="radio" name="aba_baixo" class="azul" id="aba_baixo">
                             <input value="rgb(255, 0, 0)" type="radio" name="aba_baixo" class="vermelho" id="aba_baixo">         
                         </div>
-                        <textarea class="rounded-2 w-100" name="detalhes" id="detalhes" placeholder="Descreva mais detalhes aqui"></textarea>
+                        <textarea class="rounded-2 w-100" name="detalhes" id="detalhes" placeholder="Descreva mais detalhes aqui">
+
+                        </textarea>
                         <button type="submit" class="btn btn-primary">Enviar</button>
                         <button type="reset" class="btn btn-primary">Apagar</button>
                     </form>

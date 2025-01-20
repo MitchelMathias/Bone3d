@@ -10,15 +10,15 @@ $(document).ready(function () {
         }
 
         // Alterar a cor do corpo e da aba quando o usuário selecionar uma nova cor
-        $('#cor_corpo').on('input', function () {
+        $('#cor_do_corpo').on('input', function () {
             const corCorpo = this.value; // Pega a cor do corpo selecionada pelo usuário
-            const rgbCorpo = corCorpo.match(/\w\w/g).map(x => parseInt(x, 16));
-            const normalizedCorpo = rgbToNormalized(rgbCorpo[0], rgbCorpo[1], rgbCorpo[2]);
+            //const rgbCorpo = corCorpo.match(/\w\w/g).map(x => parseInt(x, 16));
+            //const normalizedCorpo = rgbToNormalized(rgbCorpo[0], rgbCorpo[1], rgbCorpo[2]);
 
             // Aplica a cor no corpo do modelo
             viewer.model.materials.forEach((material, index) => {
                 if (index === 0) { // 0 para o corpo
-                    material.pbrMetallicRoughness.setBaseColorFactor(normalizedCorpo);
+                    material.pbrMetallicRoughness.setBaseColorFactor(corCorpo);
                 }
             });
         });
@@ -51,7 +51,7 @@ $(document).ready(function () {
         });
 
         // Submissão do formulário para enviar os dados para o servidor
-        $('#controls-form').submit(function (e) {
+        $('#formulario').submit(function (e) {
             e.preventDefault(); // Previne o envio do formulário para que possamos processá-lo via AJAX
 
             const tipo_fecho =  $('#fecho').val()
