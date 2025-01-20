@@ -1,0 +1,95 @@
+
+*{
+    font-family: cursive;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    background: linear-gradient(135deg, #3498db, #8e44ad);
+}
+
+header{
+    background-color: #000000;
+
+    h1{
+        color: white;
+    }
+    a{
+        color: white;
+        text-decoration: none;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}
+
+main{
+    .config_modelo{
+        border-radius: 20px;
+        padding: 10px;
+        border: 1px solid black;
+        .config{
+            border-radius: 20px;
+            width: 30%;
+            border: 1px solid black;
+            height: 60vh;
+            label{
+                width: 35%;
+            }
+            select{
+                width: 50%;
+            }
+            input[type="radio"]{ 
+                appearance: none; 
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                margin: 3px;
+                border: 2px solid white;
+                position: relative;
+                background-color: black;
+                &.black{
+                    background-color: #000000;
+                    &:checked{
+                        border: 6px solid black;
+                        background-color: darkgray;
+                    }
+                }
+                &.azul{
+                    background-color: #3498db;
+                    &:checked{
+                        border: 6px solid black;
+                        background-color: darkgray;
+                    }
+                }
+                &.bage{
+                    background-color: #f7f79b;
+                    &:checked{
+                        border: 6px solid black;
+                        background-color: darkgray;
+                    }
+                }
+                &.vermelho{
+                    background-color: red;
+                    &:checked{
+                        border: 6px solid black;
+                        background-color: darkgray;
+                    }
+                }
+                &:checked{
+                    border: 6px solid black;
+                    background-color: darkgray;
+                }
+            }
+        }
+        .modelo{
+            overflow: hidden;
+            border-radius: 20px;
+            width: 70%;
+            border: 1px solid black;
+            height: 60vh;
+        }
+    }
+}

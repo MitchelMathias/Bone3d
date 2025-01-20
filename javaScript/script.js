@@ -38,9 +38,9 @@ $(document).ready(function () {
         });
 
         // Trocar o modelo 3D baseado no tipo de fecho
-        $('#tipo_fecho').change(function () {
+        $('#tipo_bone').change(function () {
             const selectedValue = $(this).val();
-            const lista = ['01_trucker', '02_americano', '03_aba_reta','04_new_york', '05_viseira', '06_bucket','rosca']
+            const lista = ['01_trucker', '02_americano', '03_aba_reta','04_new_york', '05_viseira', '06_bucket']
             
             if (lista.includes(selectedValue) === true){
                 viewer.src = `models/${selectedValue +'.glb'}`

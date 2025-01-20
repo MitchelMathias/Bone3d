@@ -4,85 +4,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visualizador de Modelo 3D</title>
-    <link href="estilo/style.css" rel="stylesheet"> <!-- Link para o arquivo CSS -->
+    <link href="estilo/style.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js" defer></script>
 </head>
 <body>
-
-<!-- Container Principal -->
-<div class="container">
-    <div class="row justify-content-center">
-        <!-- Menu de Controle -->
-        <div class="col-md-4">
-            <div class="menu-container">
-                <h2>Controle de Modelo</h2>
-                <form id="controls-form">
-                    <!-- Tipo de Tecido -->
-                    <div class="mb-4">
-                        <label for="tipo_tecido" class="form-label">Tipo de Tecido</label>
-                        <select class="form-select" id="tipo_tecido">
-                            <option value="Algodao">Algodão</option>
-                            <option value="Poliester">Poliéster</option>
-                            <option value="Lona">Lona</option>
-                        </select>
-                    </div>
-
-                    <!-- Tipo de Fecho -->
-                    <div class="mb-4">
-                        <label for="tipo_fecho" class="form-label">Tipo de Fecho</label>
-                        <select class="form-select" id="tipo_fecho">
-                            <option value="01_trucker">Trucker</option>
-                            <option value="02_americano">Americano</option>
-                            <option value="03_aba_reta">Aba Reta</option>
-                            <option value="04_new_york">New York</option>
-                            <option value="05_viseira">Viseira</option>
-                            <option value="06_bucket">Bucket</option>
-                            <option value="rosca">Rosca</option>
-                        </select>
-                    </div>
-
-                    <!-- Cor do Corpo -->
-                    <div class="mb-4">
-                        <label for="cor_corpo" class="form-label">Cor do Corpo</label>
-                        <input type="color" id="cor_corpo" class="form-control" value="#ff0000">
-                    </div>
-
-                    <!-- Cor da Aba -->
-                    <div class="mb-4">
-                        <label for="cor_aba" class="form-label">Cor da Aba</label>
-                        <input type="color" id="cor_aba" class="form-control" value="#0000ff">
-                    </div>
-
-                    <!-- Botões -->
-                    <div class="d-flex justify-content-between">
-                        <button type="submit" class="btn btn-primary w-48">Aplicar</button>
-                        <button type="reset" class="btn btn-secondary w-48">Redefinir</button>
-                    </div>
-                </form>
+    <header>
+        <section class="row m-auto container p-3">
+            <article class="col-12 d-flex justify-content-between align-items-center">
+                <h1>Seu Bone</h1>
+                <article class="links ">
+                    <a href="#">Inicio</a>
+                    <a href="#">Produtos</a>
+                    <a href="#">Quem Somos</a>
+                    <a href="#">Duvidas</a>
+                    <a href="#">Sac</a>
+                    <a href="#">Blog</a>
+                </article>
+                <button class="btn btn-primary">Orçamento</button>
+            </article>
+        </section>
+    </header>
+    <main>
+        <section class="row m-auto my-5 container config_modelo">
+            <div class="col-12 d-flex ">
+                <section class="m-2 config">
+                    <form method="post" class="m-3" action="processa_formulario.php">
+                        <div class="d-flex justify-content-start align-items-center mb-2">
+                            <label for="fecho">Tipo de Fecho:</label>
+                            <select class=" form-select" name="fecho" id="fecho">
+                                <option value="sanap_back">Snap Back</option>
+                                <option value="strap_back">Strapback</option>
+                                <option value="fitted">Fitted</option>
+                            </select>
+                        </div>
+                        <div class="d-flex justify-content-start align-items-center mb-2">
+                            <label for="tipo_bone">Tipo de Bone:</label>
+                            <select title="Escolha" class=" form-select" id="tipo_bone">
+                                <option value="01_trucker">Trucker</option>
+                                <option value="02_americano">Americano</option>
+                                <option value="03_aba_reta">Aba Reta</option>
+                                <option value="04_new_york">New York</option>
+                                <option value="05_viseira">Viseira</option>
+                                <option value="06_bucket">Bucket</option>
+                                <option value="rosca">Rosca</option>
+                            </select>
+                        </div>
+                        <div class="mb-1 corpo d-flex align-items-center">
+                            <label for="cor_do_corpo">Cor do Corpo:</label>
+                            <input value="rgb(0, 0, 0)" type="radio" name="cor_do_corpo" class="preto" id="preto_corpo">
+                            <input value="rgb(245, 245, 220)" type="radio" name="cor_do_corpo" class="bage" id="bage_corpo">
+                            <input value="rgb(0, 123, 255)" type="radio" name="cor_do_corpo" class="azul" id="azul_corpo">
+                            <input value="rgb(255, 0, 0)" type="radio" name="cor_do_corpo" class="vermelho" id="vermelho_corpo">         
+                        </div>
+                        <div class="mb-1 frente d-flex align-items-center">
+                            <label for="cor_da_frente">Cor da Frente:</label>
+                            <input value="rgb(0, 0, 0)" type="radio" name="cor_da_frente" class="preto" id="preto_frente">
+                            <input value="rgb(245, 245, 220)" type="radio" name="cor_da_frente" class="bage" id="bage_frente">
+                            <input value="rgb(0, 123, 255)" type="radio" name="cor_da_frente" class="azul"  id="azul_frente">
+                            <input value="rgb(255, 0, 0)" type="radio" name="cor_da_frente" class="vermelho" id="vermelho_frente">         
+                        </div>
+                        <div class="mb-1 aba_cima d-flex align-items-center">
+                            <label for="aba_cima">Aba Cima:</label>
+                            <input value="rgb(0, 0, 0)" type="radio" name="aba_cima" class="preto" id="preto_cima">
+                            <input value="rgb(245, 245, 220)" type="radio" name="aba_cima" class="bage" id="bage_cima">
+                            <input value="rgb(0, 123, 255)" type="radio" name="aba_cima" class="azul" id="azul_cima">
+                            <input value="rgb(255, 0, 0)" type="radio" name="aba_cima" class="vermelho" id="vermelho_cima">         
+                        </div>
+                        <div class="mb-1 aba_baixo d-flex align-items-center">
+                            <label for="aba_baixo">Aba Baixo:</label>
+                            <input value="rgb(0, 0, 0)" type="radio" name="aba_baixo" class="preto" id="preto_baixo">
+                            <input value="rgb(245, 245, 220)" type="radio" name="aba_baixo" class="bage" id="bage_baixo">
+                            <input value="rgb(0, 123, 255)" type="radio" name="aba_baixo" class="azul" id="azul_baixo">
+                            <input value="rgb(255, 0, 0)" type="radio" name="aba_baixo" class="vermelho" id="vermelho_baixo">         
+                        </div>
+                        <textarea class="rounded-2 w-100" name="detalhes" id="detalhes" placeholder="Descreva mais detalhes aqui"></textarea>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                        <button type="reset" class="btn btn-primary">Apagar</button>
+                    </form>
+                </section>
+                <section class="m-2 modelo">
+                    <model-viewer
+                        id="viewer"
+                        src="models/01_trucker.glb"
+                        alt="Modelo 3D"
+                        auto-rotate
+                        camera-controls
+                        camera-orbit="0deg 75deg 500m"
+                        environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.hdr"
+                        shadow-intensity="1"
+                        shadow-softness="1"
+                        style="width: 100%; height: 100%;">
+                    </model-viewer>
+                </section>
             </div>
-        </div>
+        </section>        
+    </main>
+    <footer>
 
-        <!-- Visualizador 3D -->
-        <div class="col-md-8 viewer-container">
-            <model-viewer
-                id="viewer"
-                src="models/01_trucker.glb"
-                alt="Modelo 3D"
-                auto-rotate
-                camera-controls
-                camera-orbit="0deg 75deg 500m"
-                environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.hdr"
-                shadow-intensity="1"
-                shadow-softness="1"
-                style="width: 100%; height: 100%;">
-            </model-viewer>
-        </div>
-    </div>
-</div>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="javaScript/script.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="javaScript/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
