@@ -50,34 +50,31 @@ $(document).ready(function () {
             }
         });
 
-        //comentei teu códgo caso tu ache melhor a tua versão, 
-        // eu tentei otimizar ja que é muito boné ali e dessa vez não usei o gpt kskskskksks 
-
-            /*if (selectedValue === 'snapback') {
-                viewer.src = 'models/bone.glb';  // Caminho do modelo Snapback
-            } else if (selectedValue === 'bucket') {
-                viewer.src = 'models/hat.glb';   // Caminho do modelo Bucket
-            }
-        });*/
-
         // Submissão do formulário para enviar os dados para o servidor
         $('#controls-form').submit(function (e) {
             e.preventDefault(); // Previne o envio do formulário para que possamos processá-lo via AJAX
 
-            const tipoTecido = $('#tipo_tecido').val();
-            const tipoFecho = $('#tipo_fecho').val();
-            const corCorpo = $('#cor_corpo').val();
-            const corAba = $('#cor_aba').val();
+            const tipo_fecho =  $('#fecho').val()
+            const tipo_bone =  $('#tipo_bone').val()
+            const cor_corpo =  $('#cor_corpo').val()
+            const cor_frente =  $('#cor_da_frente').val()
+            const cor_cima = $('#aba_cima').val()
+            const cor_baixo = $('#aba_baixo').val()
+            const detalhes = $('#detalhes').val()
+
 
             // Enviar dados via AJAX
             $.ajax({
                 url: 'processa_formulario.php',
                 type: 'POST',
                 data: {
-                    tipo_tecido: tipoTecido,
-                    tipo_fecho: tipoFecho,
-                    cor_corpo: corCorpo,
-                    cor_aba: corAba
+                    tipo_fecho: tipo_fecho,
+                    tipo_bone: tipo_bone,
+                    cor_corpo: cor_corpo,
+                    cor_frente: cor_frente,
+                    cor_cima: cor_cima,
+                    cor_baixo: cor_baixo,
+                    detalhes: detalhes
                 },
                 success: function (response) {
                     alert("Dados enviados com sucesso!");
