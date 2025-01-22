@@ -23,6 +23,9 @@ header a:hover {
   text-decoration: underline;
 }
 
+main {
+  color: white;
+}
 main .config_modelo {
   border-radius: 20px;
   padding: 10px;

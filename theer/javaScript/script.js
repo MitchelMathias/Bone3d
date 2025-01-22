@@ -3,7 +3,6 @@ $(document).ready(function(){
     carregar_3d('01_trucker')
     troca_bone()
 
-    // Adicione o evento de mudança aqui
     $('input[name="cor_do_corpo"], input[name="cor_da_frente"], input[name="aba_cima"], input[name="aba_baixo"]').change(function(){
         troca_cor();
     });
@@ -29,6 +28,7 @@ function criar_cena(){
     container.append(renderer.domElement);
 
     camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000) 
+    //scene.background = new THREE.Color(0xffffff)
     camera.position.y = 1
 
     adicionarLuzes();
