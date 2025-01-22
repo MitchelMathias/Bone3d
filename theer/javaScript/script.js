@@ -16,19 +16,18 @@ function criar_cena(){
     let height = container.height()
     scene = new THREE.Scene()
 
-    // Configurar o fundo como transparente
     renderer = new THREE.WebGLRenderer({
         canvas: document.createElement('canvas'),
         antialias: true,
-        alpha: true // Habilita a transparência
+        alpha: true 
     });
     renderer.setSize(width, height);
-    renderer.setClearColor(0xffffff, 0); // Cor de fundo transparente
+    renderer.setClearColor(0xffffff, 0); 
 
     container.append(renderer.domElement);
 
     camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000) 
-    //scene.background = new THREE.Color(0xffffff)
+    //scene.background = new THREE.Color(0xffffff) para teste
     camera.position.y = 1
 
     adicionarLuzes();
@@ -49,45 +48,28 @@ function criar_cena(){
 }
 
 function adicionarLuzes() {
-    // Luz Pontual (PointLight)
-    const pointLight = new THREE.PointLight(0xffffff, 0.5); // Cor branca e intensidade 1.0
-    pointLight.position.set(10, 10, 10); // Posição da luz
+    const pointLight = new THREE.PointLight(0xffffff, 0.5); 
+    pointLight.position.set(10, 10, 10); 
     scene.add(pointLight);
 
-    // Luz Direcional (DirectionalLight)
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8); // Cor branca e intensidade 0.5
-    directionalLight.position.set(100, 0, 0); // Posição da luz
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8); 
+    directionalLight.position.set(100, 0, 0); 
     scene.add(directionalLight);
 
-    // Luz Ambiente (AmbientLight)
-    const ambientLight = new THREE.AmbientLight(0x111111, 5); // Cor suave e intensidade 0.5
+    const ambientLight = new THREE.AmbientLight(0x111111, 5); 
     scene.add(ambientLight);
 }
 
-function troca_bone(){
-    let bone = $('#tipo_bone')
-    let array_bone = ['01_trucker', '02_americano', '03_aba_reta', '04_new_york', '05_viseira', '06_bucket']
-
-    bone.change(function(){
-
-        if(array_bone.includes(bone.val())){
-            tipo = bone.val()
-            carregar_3d(tipo)
-        }
-        else{
-            alert('Modelo não encontrado')
-        }   
-    })
-}
-
-function carregar_3d(tipo_bone){
-    if(modelo_atual !== null){
-        scene.remove(modelo_atual)
+function carregar_3d(tipo_bone) {
+    if (modelo_atual !== null) {
+        scene.remove(modelo_atual);
     }
 
-    const loader = new THREE.GLTFLoader()
+    $('input[name="cor_do_corpo"], input[name="cor_da_frente"], input[name="aba_cima"], input[name="aba_baixo"]').prop('checked', false);
 
-    loader.load(`models/${tipo_bone}.glb`, function (carregou){ 
+    const loader = new THREE.GLTFLoader();
+
+    loader.load(`models/${tipo_bone}.glb`, function (carregou) { 
 
         carregou.scene.position.set(0, 0, 0);
         carregou.scene.rotation.set(0, 0, 0);
@@ -103,13 +85,36 @@ function carregar_3d(tipo_bone){
         const escala = tamanhoMaximo / tamanho;
         carregou.scene.scale.set(escala, escala, escala);
 
-        camera.position.z = tamanhoMaximo * 0.8; 
+        camera.position.z = tamanhoMaximo * 0.8;
+
+        // Tornar logo invisível inicialmente
+        carregou.scene.traverse(function(obj) {
+            if (obj.isMesh && obj.name.includes('logo_frente')) {
+                obj.visible = false; // Inicia invisível
+            }
+        });
 
         scene.add(carregou.scene);
         modelo_atual = carregou.scene;
 
     }, undefined, function(deu_ruim){ 
         alert('Recarregue a Página'); 
+    });
+}
+
+function troca_bone(){
+    let bone = $('#tipo_bone')
+    let array_bone = ['01_trucker', '02_americano', '03_aba_reta', '04_new_york', '05_viseira', '06_bucket','teste']
+
+    bone.change(function(){
+
+        if(array_bone.includes(bone.val())){
+            tipo = bone.val()
+            carregar_3d(tipo)
+        }
+        else{
+            alert('Modelo não encontrado')
+        }   
     })
 }
 
@@ -118,11 +123,13 @@ function troca_cor(){
     let frente = $('input[name="cor_da_frente"]:checked').val();
     let aba_cima = $('input[name="aba_cima"]:checked').val();
     let aba_baixo = $('input[name="aba_baixo"]:checked').val();
+    let logo = 'imagens/foto_menor.jpg' || null;
 
     mudar_cor("corpo", corpo);
     mudar_cor("frente", frente);
     mudar_cor("aba_cima", aba_cima);
     mudar_cor("aba_baixo", aba_baixo);
+    mudar_cor('logo_frente', logo)
 }
 
 function mudar_cor(tipo_cor, cor) {
@@ -130,9 +137,32 @@ function mudar_cor(tipo_cor, cor) {
         modelo_atual.traverse(function(obj) {
             if (obj.isMesh) {
                 if (obj.name.includes(tipo_cor)) {
-                    obj.material.color.set(cor);
+                    if (cor) {
+                        // Se for a logo, aplicar a textura da imagem
+                        if (tipo_cor === 'logo_frente') {
+                            const textureLoader = new THREE.TextureLoader();
+                            const texture = textureLoader.load(cor); // 'cor' agora é o caminho da imagem
+
+                            // Aplica a textura no material da logo
+                            obj.material.map = texture;
+                            obj.material.needsUpdate = true; // Atualiza o material para refletir a textura
+                            obj.visible = true; // Torna a logo visível
+                        } else {
+                            // Para outras partes (como corpo, frente, etc.), aplica a cor normalmente
+                            obj.material.color.set(cor);
+                            obj.visible = true;
+                        }
+                    } else {
+                        // Caso não haja cor ou logo, torna a logo invisível
+                        obj.visible = false;
+                    }
+                } else {
+                    // Para outras partes do boné, mantém visíveis
+                    obj.visible = true;
                 }
             }
         });
     }
 }
+
+
