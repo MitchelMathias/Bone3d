@@ -4,30 +4,20 @@ $(document).ready(function(){
     criarCena();
     carregarModelo('01_trucker');
     configurarInteracoes();
-    const debounceResize = _.debounce(function() {
-        const largura = $('.modelo').width();
-        const altura = $('.modelo').height();
-
-        camera.aspect = largura / altura;
-        camera.updateProjectionMatrix();
-        renderer.setSize(largura, altura);
-    }, 200);
-
-    $(window).resize(debounceResize);
 });
 
 function criarCena() {
     const container = $('.modelo');
-    const largura = container.width();
-    const altura = container.height();
+    const largura = window.innerWidth;
+    const altura = window.innerHeight;
 
     scene = new THREE.Scene();
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(largura, altura);
 
-    $(container).resize(function() {
-        largura = container.width();
-        altura = container.height();
+    $(window).resize(function() {
+        largura = window.innerWidth;
+        altura = window.innerHeight;
 
         camera.aspect = largura / altura;
         camera.updateProjectionMatrix();
@@ -36,8 +26,10 @@ function criarCena() {
     
     container.append(renderer.domElement);
 
-    camera = new THREE.PerspectiveCamera(75, largura / altura, 0.1, 1000);
+    const aspect = largura / altura;
+    camera = new THREE.PerspectiveCamera(75, aspect, 0.1, 1000);
     camera.position.set(0, 1, 4);
+    scene.background = new THREE.Color(0x808080);
 
     const luzPonto = new THREE.PointLight(0xffffff, 0.5);
     luzPonto.position.set(10, 10, 10);
