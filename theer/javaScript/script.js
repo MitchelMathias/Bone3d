@@ -6,6 +6,14 @@ $(document).ready(function(){
     $('input[name="cor_do_corpo"], input[name="cor_da_frente"], input[name="aba_cima"], input[name="aba_baixo"]').change(function(){
         troca_cor();
     });
+
+    $('input[name="logo"]').change(function() {
+        let logo = this.files[0];
+        if (logo) {
+            const logoUrl = URL.createObjectURL(logo);
+            mudar_cor('logo', logoUrl);
+        }
+    });
 });
 
 let scene, camera, renderer, tipo, modelo_atual = null
@@ -89,8 +97,8 @@ function carregar_3d(tipo_bone) {
 
         // Tornar logo invisível inicialmente
         carregou.scene.traverse(function(obj) {
-            if (obj.isMesh && obj.name.includes('logo_frente')) {
-                obj.visible = false; // Inicia invisível
+            if (obj.name.includes('logo')) {
+                obj.visible = false;
             }
         });
 
@@ -107,7 +115,6 @@ function troca_bone(){
     let array_bone = ['01_trucker', '02_americano', '03_aba_reta', '04_new_york', '05_viseira', '06_bucket','teste']
 
     bone.change(function(){
-
         if(array_bone.includes(bone.val())){
             tipo = bone.val()
             carregar_3d(tipo)
@@ -123,46 +130,52 @@ function troca_cor(){
     let frente = $('input[name="cor_da_frente"]:checked').val();
     let aba_cima = $('input[name="aba_cima"]:checked').val();
     let aba_baixo = $('input[name="aba_baixo"]:checked').val();
-    let logo = 'imagens/foto_menor.jpg' || null;
+    let logo = $('input[name="logo"]')[0].files[0];
 
+    if (logo) {
+        const logoUrl = URL.createObjectURL(logo);
+        logo = logoUrl;
+    }
+    
     mudar_cor("corpo", corpo);
     mudar_cor("frente", frente);
     mudar_cor("aba_cima", aba_cima);
     mudar_cor("aba_baixo", aba_baixo);
-    mudar_cor('logo_frente', logo)
+    mudar_cor('logo', logo)
 }
 
-function mudar_cor(tipo_cor, cor) {
+function mudar_cor(parte, cor) {
     if (modelo_atual) {
-        modelo_atual.traverse(function(obj) {
-            if (obj.isMesh) {
-                if (obj.name.includes(tipo_cor)) {
-                    if (cor) {
-                        // Se for a logo, aplicar a textura da imagem
-                        if (tipo_cor === 'logo_frente') {
-                            const textureLoader = new THREE.TextureLoader();
-                            const texture = textureLoader.load(cor); // 'cor' agora é o caminho da imagem
-
-                            // Aplica a textura no material da logo
-                            obj.material.map = texture;
-                            obj.material.needsUpdate = true; // Atualiza o material para refletir a textura
-                            obj.visible = true; // Torna a logo visível
-                        } else {
-                            // Para outras partes (como corpo, frente, etc.), aplica a cor normalmente
-                            obj.material.color.set(cor);
-                            obj.visible = true;
-                        }
+        modelo_atual.traverse(function (obj) {
+            if (obj.isMesh && obj.name.includes(parte)) {
+                if (cor) {
+                    // Se for a logo, aplicar a textura da imagem
+                    if (parte === 'logo') {
+                        const textureLoader = new THREE.TextureLoader();
+                        textureLoader.load(
+                            cor,
+                            function (texture) {
+                                obj.material.map = texture; // Adiciona a textura
+                                obj.material.needsUpdate = true; // Atualiza o material
+                                obj.visible = true; // Torna a logo visível
+                            },
+                            undefined,
+                            function (err) {
+                                console.error('Erro ao carregar a textura:', err);
+                            }
+                        );
                     } else {
-                        // Caso não haja cor ou logo, torna a logo invisível
-                        obj.visible = false;
+                        // Para outras partes (como corpo, frente, etc.), aplica a cor normalmente
+                        obj.material.color.set(cor);
+                        obj.visible = true; // Garante que esteja visível
                     }
                 } else {
-                    // Para outras partes do boné, mantém visíveis
-                    obj.visible = true;
+                    obj.visible = true; // Mantém visível se nenhuma cor for passada
                 }
             }
         });
     }
 }
+
 
 
