@@ -4,6 +4,16 @@ $(document).ready(function(){
     criarCena();
     carregarModelo('01_trucker');
     configurarInteracoes();
+    const debounceResize = _.debounce(function() {
+        const largura = $('.modelo').width();
+        const altura = $('.modelo').height();
+
+        camera.aspect = largura / altura;
+        camera.updateProjectionMatrix();
+        renderer.setSize(largura, altura);
+    }, 200);
+
+    $(window).resize(debounceResize);
 });
 
 function criarCena() {
@@ -15,7 +25,7 @@ function criarCena() {
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(largura, altura);
 
-    $(window).resize(function() {
+    $(container).resize(function() {
         largura = container.width();
         altura = container.height();
 
