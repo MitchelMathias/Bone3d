@@ -29,13 +29,12 @@ main {
 main .config_modelo {
   border-radius: 20px;
   padding: 10px;
-  border: 1px solid black;
 }
 main .config_modelo .config {
   border-radius: 20px;
   width: 30%;
   border: 1px solid black;
-  height: 60vh;
+  height: 80vh;
 }
 main .config_modelo .config label {
   width: 35%;
@@ -87,9 +86,13 @@ main .config_modelo .config input[type=radio]:checked {
   border: 6px solid black;
   background-color: darkgray;
 }
+main .config_modelo .config textarea {
+  height: 100px;
+  resize: none;
+}
 main .config_modelo .modelo {
   border-radius: 20px;
   width: 70%;
-  height: 60vh;
+  height: 80vh;
   border: 1px solid black;
 }/*# sourceMappingURL=style.css.map */
