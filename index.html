@@ -6,13 +6,12 @@
     <title>Visualizador de Modelo 3D</title>
     <link href="estilo/style.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js" defer></script>
 </head>
 <body>
     <header>
         <section class="row m-auto container p-3">
             <article class="col-12 d-flex justify-content-between align-items-center">
-                <h1>Seu Bone</h1>
+                <h1>Seu Boné</h1>
                 <article class="links ">
                     <a href="#">Inicio</a>
                     <a href="#">Produtos</a>
@@ -26,9 +25,10 @@
         </section>
     </header>
     <main>
-        <section class="row m-auto my-5 container config_modelo">
-            <div class="col-12 d-flex ">
+        <section class="row m-auto my-4 container config_modelo">
+            <div class="col-12 d-flex">
                 <section class="m-2 config">
+                    <h2 class="text-center my-2">Personalize seu Boné</h2>
                     <form id="formulario" method="post" class="m-3" action="processa_formulario.php">
                         <div class="d-flex justify-content-start align-items-center mb-2">
                             <label for="fecho">Tipo de Fecho:</label>
@@ -47,6 +47,7 @@
                                 <option value="04_new_york">New York</option>
                                 <option value="05_viseira">Viseira</option>
                                 <option value="06_bucket">Bucket</option>
+                                <option value="teste">Teste</option>
                             </select>
                         </div>
                         <div class="mb-1 corpo d-flex align-items-center">
@@ -77,24 +78,16 @@
                             <input value="rgb(0, 123, 255)" type="radio" name="aba_baixo" class="azul" id="aba_baixo">
                             <input value="rgb(255, 0, 0)" type="radio" name="aba_baixo" class="vermelho" id="aba_baixo">         
                         </div>
+                        <div class="my-2">
+                            <label class="form-label w-100" for="logo">Envie o Arquivo com sua logo:</label>
+                            <input class="form-control" type="file" name="logo" id="logo">
+                        </div>
                         <textarea class="rounded-2 w-100" id="detalhes" placeholder="Digite os detalhes aqui"></textarea>
                         <button type="submit" class="btn btn-primary">Enviar</button>
                         <button type="reset" class="btn btn-primary">Apagar</button>
                     </form>
                 </section>
                 <section class="m-2 modelo">
-                    <model-viewer
-                        id="viewer"
-                        src="models/01_trucker.glb"
-                        alt="Modelo 3D"
-                        auto-rotate
-                        camera-controls
-                        camera-orbit="0deg 75deg 500m"
-                        environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.hdr"
-                        shadow-intensity="1"
-                        shadow-softness="1"
-                        style="width: 100%; height: 100%;">
-                    </model-viewer>
                 </section>
             </div>
         </section>        
@@ -102,9 +95,10 @@
     <footer>
 
     </footer>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js"></script> 
-    <script src="https://cdn.jsdelivr.net/npm/three@0.152/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="lib/three.min.js"></script>
+    <script src="lib/GLTFLoader.js"></script>
+    <script src="lib/OrbitControls.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="javaScript/script.js"></script>
 </body>

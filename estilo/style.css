@@ -1,12 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 * {
   font-family: cursive;
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-}
-
-body {
-  background: linear-gradient(135deg, #3498db, #8e44ad);
+  color: #000000;
+  font-family: roboto, Arial, Helvetica, sans-serif;
 }
 
 header {
@@ -23,16 +22,18 @@ header a:hover {
   text-decoration: underline;
 }
 
+main {
+  color: white;
+}
 main .config_modelo {
   border-radius: 20px;
   padding: 10px;
-  border: 1px solid black;
 }
 main .config_modelo .config {
   border-radius: 20px;
   width: 30%;
   border: 1px solid black;
-  height: 60vh;
+  height: 80vh;
 }
 main .config_modelo .config label {
   width: 35%;
@@ -84,10 +85,13 @@ main .config_modelo .config input[type=radio]:checked {
   border: 6px solid black;
   background-color: darkgray;
 }
+main .config_modelo .config textarea {
+  height: 100px;
+  resize: none;
+}
 main .config_modelo .modelo {
-  overflow: hidden;
   border-radius: 20px;
   width: 70%;
+  height: 80vh;
   border: 1px solid black;
-  height: 60vh;
 }/*# sourceMappingURL=style.css.map */

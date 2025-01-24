@@ -1,48 +1,138 @@
-const viewer = $('#viewer');
-const fecho = $('#fecho');
-const tipo = $('#tipo_bone');
-const corpo = $('#cor_do_corpo');
-const frente = $('#cor_da_frente');
-const cima = $('#aba_cima');
-const baixo = $('#aba_baixo');
-const detalhes = $('#detalhes');
+let cena, camera, renderer, modelo_atual = null;
 
-const array_fecho = ['sanap_back', 'strap_back', 'fitted'];
-const array_tipo = ['01_trucker', '02_americano', '03_aba_reta', '04_new_york', '05_viseira', '06_bucket'];
+$(document).ready(function(){
+    criarCena();
+    carregarModelo('01_trucker');
+    configurarInteracoes();
+});
 
-$(document).ready(function () {
-    tipo.change(function troca_bone() {
-        if (array_tipo.includes(tipo.val())) {
-            const modelo = `models/${tipo.val()}.glb`;
-            viewer.attr('src', modelo);
+function criarCena() {
+    const container = $('.modelo');
+    const largura = container.width();
+    const altura = container.height();
 
-            carrega_partes(modelo);
-        } else {
-            alert('Deu merda');
+    cena = new THREE.cena();
+    cena.background = new THREE.Color(0xd3d3d3);
+    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(largura, altura);
+
+    $(window).resize(function(){
+        const largura = container.width();
+        const altura = container.height();
+        camera.aspect = largura / altura;
+        camera.updateProjectionMatrix();
+        renderer.setSize(largura, altura);
+    })
+
+    container.append(renderer.domElement);
+
+    camera = new THREE.PerspectiveCamera(75, largura / altura, 0.1, 1000);
+    camera.position.set(0, 1, 4);
+
+    const luzPonto = new THREE.PointLight(0xffffff, 0.5);
+    luzPonto.position.set(10, 10, 10);
+    cena.add(luzPonto);
+
+    const luzDirecional = new THREE.DirectionalLight(0xffffff, 0.8);
+    luzDirecional.position.set(100, 0, 0);
+    cena.add(luzDirecional);
+
+    const luzAmbiente = new THREE.AmbientLight(0x111111, 5);
+    cena.add(luzAmbiente);
+
+    const controles = new THREE.OrbitControls(camera, renderer.domElement);
+
+    function animar() {
+        requestAnimationFrame(animar);
+        controles.update();
+        if (modelo_atual) {
+            modelo_atual.rotation.y += 0.0004;
         }
+        renderer.render(cena, camera);
+    }
+
+    animar();
+}
+
+function carregarModelo(tipo) {
+    if (modelo_atual) {
+        cena.remove(modelo_atual);
+    }
+
+    const loader = new THREE.GLTFLoader();
+    loader.load(`models/${tipo}.glb`,
+        function (gltf) {
+            const modelo = gltf.cena;
+
+            modelo.position.set(0, 0, 0);
+
+            const box = new THREE.Box3().setFromObject(modelo);
+            const tamanho = Math.max(
+                box.max.x - box.min.x,
+                box.max.y - box.min.y,
+                box.max.z - box.min.z
+            );
+
+            const escala = 5 / tamanho;
+            modelo.scale.set(escala, escala, escala);
+
+            modelo.traverse(obj => {
+                if (obj.name.includes('logo')) {
+                    obj.visible = false;
+                }
+            });
+
+            cena.add(modelo);
+            modelo_atual = modelo;
+        },
+        undefined,
+        function () {
+            alert('Erro ao carregar o modelo.');
+        }
+    );
+}
+
+function configurarInteracoes() {
+    $('#tipo_bone').change(function() {
+        const tipo = $(this).val();
+        carregarModelo(tipo);
     });
 
-    function carrega_partes(modelo) {
-        const loader = new THREE.GLTFLoader();
+    $('input[name="cor_do_corpo"], input[name="cor_da_frente"], input[name="aba_cima"], input[name="aba_baixo"]').change(aplicarAlteracoes);
 
-        loader.load(
-            modelo,
-            function (gltf) {
-                const model = gltf.scene;
+    $('input[name="logo"]').change(aplicarAlteracoes);
+}
 
-                // Função para carregar as partes do modelo
-                model.traverse((child) => {
-                    if (child.isMesh) {
-                        console.log('Parte encontrada:', child.name);
-                        console.log('Material:', child.material);
-                        console.log('Geometria:', child.geometry);
-                    }
-                });
-            },
-            undefined,
-            function (error) {
-                console.error('Erro ao carregar o modelo:', error);
-            }
-        );
+function aplicarAlteracoes() {
+    if (!modelo_atual) return;
+
+    const cores = {
+        corpo: $('input[name="cor_do_corpo"]:checked').val(),
+        frente: $('input[name="cor_da_frente"]:checked').val(),
+        aba_cima: $('input[name="aba_cima"]:checked').val(),
+        aba_baixo: $('input[name="aba_baixo"]:checked').val()
+    };
+
+    const logoArquivo = $('input[name="logo"]')[0].files[0];
+    if (logoArquivo) {
+        cores.logo = URL.createObjectURL(logoArquivo);
     }
-});
+
+    modelo_atual.traverse(function(obj) {
+        if (obj.isMesh) {
+            const parte = Object.keys(cores).find(p => obj.name.includes(p));
+            if (parte && cores[parte]) {
+                if (parte === 'logo') {
+                    const loader = new THREE.TextureLoader();
+                    loader.load(cores[parte], textura => {
+                        obj.material.map = textura;
+                        obj.material.needsUpdate = true;
+                    });
+                } else {
+                    obj.material.color.set(cores[parte]);
+                }
+                obj.visible = true;
+            }
+        }
+    });
+}

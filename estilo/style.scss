@@ -1,13 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 *{
     font-family: cursive;
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-}
-
-body{
-    background: linear-gradient(135deg, #3498db, #8e44ad);
+    color: #000000;
+    font-family: roboto, Arial, Helvetica, sans-serif;
 }
 
 header{
@@ -25,16 +24,17 @@ header{
     }
 }
 
+
 main{
+    color: white;
     .config_modelo{
         border-radius: 20px;
         padding: 10px;
-        border: 1px solid black;
         .config{
             border-radius: 20px;
             width: 30%;
             border: 1px solid black;
-            height: 60vh;
+            height: 80vh;
             label{
                 width: 35%;
             }
@@ -83,13 +83,16 @@ main{
                     background-color: darkgray;
                 }
             }
+            textarea{
+                height: 100px;
+                resize: none;
+            }
         }
         .modelo{
-            overflow: hidden;
             border-radius: 20px;
             width: 70%;
+            height: 80vh;
             border: 1px solid black;
-            height: 60vh;
         }
     }
 }
