@@ -26,7 +26,6 @@ main {
 }
 main .config_modelo {
   border-radius: 20px;
-  padding: 10px;
 }
 main .config_modelo .config {
   overflow-y: scroll;
@@ -34,7 +33,6 @@ main .config_modelo .config {
   border-radius: 20px;
   width: 30%;
   border: 1px solid black;
-  height: 70vh;
 }
 main .config_modelo .config label {
   width: 35%;
@@ -94,6 +92,5 @@ main .config_modelo .modelo {
   overflow: hidden;
   border-radius: 20px;
   width: 70%;
-  height: 70vh;
   border: 1px solid black;
 }/*# sourceMappingURL=style.css.map */

@@ -8,8 +8,8 @@ $(document).ready(function(){
 
 function criarCena() {
     const container = $('.modelo');
-    const largura = container.width();
-    const altura = container.height();
+    let largura = container.width();
+    let altura = container.height();
 
     scene = new THREE.Scene();
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
