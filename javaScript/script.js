@@ -8,16 +8,16 @@ $(document).ready(function(){
 
 function criarCena() {
     const container = $('.modelo');
-    const largura = window.innerWidth;
-    const altura = window.innerHeight;
+    const largura = container.width();
+    const altura = container.height();
 
     scene = new THREE.Scene();
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(largura, altura);
 
     $(window).resize(function() {
-        largura = window.innerWidth;
-        altura = window.innerHeight;
+        largura = container.width();
+        altura = container.height();
 
         camera.aspect = largura / altura;
         camera.updateProjectionMatrix();
@@ -27,7 +27,7 @@ function criarCena() {
     container.append(renderer.domElement);
 
     const aspect = largura / altura;
-    camera = new THREE.PerspectiveCamera(75, aspect, 0.1, 1000);
+    camera = new THREE.PerspectiveCamera(75, largura / altura, 0.1, 1000);
     camera.position.set(0, 1, 4);
     scene.background = new THREE.Color(0x808080);
 
