@@ -14,6 +14,16 @@ function criarCena() {
     scene = new THREE.Scene();
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(largura, altura);
+
+    $(window).resize(function() {
+        largura = container.width();
+        altura = container.height();
+
+        camera.aspect = largura / altura;
+        camera.updateProjectionMatrix();
+        renderer.setSize(largura, altura);
+    });
+    
     container.append(renderer.domElement);
 
     camera = new THREE.PerspectiveCamera(75, largura / altura, 0.1, 1000);
