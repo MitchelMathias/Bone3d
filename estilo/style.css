@@ -27,7 +27,6 @@ main .config_modelo {
 }
 main .config_modelo .config {
   border: 1px solid black;
-  overflow-y: scroll;
   border-radius: 20px;
 }
 main .config_modelo .config label {
