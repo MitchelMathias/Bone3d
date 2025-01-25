@@ -29,7 +29,7 @@ function criarCena() {
     const aspect = largura / altura;
     camera = new THREE.PerspectiveCamera(75, largura / altura, 0.1, 1000);
     camera.position.set(0, 1, 4);
-    scene.background = new THREE.Color(0x808080);
+    scene.background = new THREE.Color(0xD3D3D3);
 
     const luzPonto = new THREE.PointLight(0xffffff, 0.5);
     luzPonto.position.set(10, 10, 10);

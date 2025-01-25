@@ -1,7 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 * {
-  margin: 0px;
-  padding: 0px;
   box-sizing: border-box;
   color: #000000;
   font-family: roboto, arial, helvetica, sans-serif;
@@ -28,11 +26,9 @@ main .config_modelo {
   border-radius: 20px;
 }
 main .config_modelo .config {
-  overflow-y: scroll;
-  overflow-x: hidden;
-  border-radius: 20px;
-  width: 30%;
   border: 1px solid black;
+  overflow-y: scroll;
+  border-radius: 20px;
 }
 main .config_modelo .config label {
   width: 35%;
@@ -89,8 +85,7 @@ main .config_modelo .config textarea {
   resize: none;
 }
 main .config_modelo .modelo {
+  border: 1px solid black;
   overflow: hidden;
   border-radius: 20px;
-  width: 70%;
-  border: 1px solid black;
 }/*# sourceMappingURL=style.css.map */
