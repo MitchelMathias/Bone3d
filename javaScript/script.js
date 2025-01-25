@@ -61,6 +61,9 @@ function carregarModelo(tipo) {
         scene.remove(modelo_atual);
     }
 
+    $('input[name="cor_do_corpo"], input[name="cor_da_frente"], input[name="aba_cima"], input[name="aba_baixo"]').prop('checked', false);
+    $('input[name="logo"]').val('');
+
     const loader = new THREE.GLTFLoader();
     loader.load(`models/${tipo}.glb`,
         function (gltf) {
