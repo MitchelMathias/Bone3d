@@ -67,16 +67,10 @@ header{
 
 main{
     color: black;
-    .img_texto{
-        background: url(../imagens/fundo_persona.svg) no-repeat center center;
-        background-size: cover;
-        .texto{
-            color: white;
-        }
-        .bone_img{
-            img{
-                object-fit: fill;
-            }
+    .comeco{
+        img{
+            height: 80vh;
+            object-fit: cover;
         }
     }
 

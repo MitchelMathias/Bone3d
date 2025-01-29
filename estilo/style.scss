@@ -67,6 +67,12 @@ header{
 }
 
 main{
+    .comeco{
+        img{
+            height: 80vh;
+            object-fit: cover;
+        }
+    }
     .container_inicio{
         background: url(../imagens/foto.png) center no-repeat;
         background-size: cover;
@@ -141,21 +147,7 @@ main{
                 width: 150px;
             }
         }
-        .tipos_bones{
-            border-radius: 15px;
-            height: auto;
-            overflow: hidden;
-            .bone_destaque{
-                border: 1px solid black;
-                border-radius: 15px;
-            }
-            .outros{
-                .div_bones,.div_bones_12{
-                    border: 1px solid black;
-                    border-radius: 15px;
-                }
-            }
-        }
+        
         .duvidas{
             article > h1{
                 strong{

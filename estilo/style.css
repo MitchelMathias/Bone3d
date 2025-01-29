@@ -56,6 +56,11 @@ header .redes a i:hover {
   color: #BB0000;
 }
 
+main .comeco img {
+  height: 80vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 main .container_inicio {
   background: url(../imagens/foto.png) center no-repeat;
   background-size: cover;
@@ -120,19 +125,6 @@ main .pag_02 .fotos .todas_div div img {
 }
 main .pag_02 .fotos a {
   width: 150px;
-}
-main .pag_02 .tipos_bones {
-  border-radius: 15px;
-  height: auto;
-  overflow: hidden;
-}
-main .pag_02 .tipos_bones .bone_destaque {
-  border: 1px solid black;
-  border-radius: 15px;
-}
-main .pag_02 .tipos_bones .outros .div_bones, main .pag_02 .tipos_bones .outros .div_bones_12 {
-  border: 1px solid black;
-  border-radius: 15px;
 }
 main .pag_02 .duvidas article > h1 strong {
   color: #BB0000;
