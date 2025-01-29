@@ -131,6 +131,30 @@ main .config_modelo .modelo {
   border-radius: 20px;
 }
 
+footer {
+  background-color: #000000;
+  color: white;
+}
+footer img {
+  max-width: 250px;
+}
+footer I {
+  margin: 5px;
+  font-size: 2em;
+  color: white;
+}
+footer I:hover, footer I:focus, footer I:active {
+  color: #BB0000;
+}
+footer a {
+  color: white;
+  text-decoration: none;
+}
+footer a:hover, footer a:focus, footer a:active {
+  color: #BB0000;
+  text-decoration: underline;
+}
+
 @media screen and (min-width: 992px) {
   header .container_divs .menu nav {
     border: none;

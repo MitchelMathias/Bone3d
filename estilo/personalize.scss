@@ -141,6 +141,30 @@ main{
     }
 }
 
+footer{
+    background-color: $cor1;
+    color: white;
+    img{
+        max-width: 250px;
+    }
+    I{
+        margin: 5px;
+        font-size: 2em;
+        color: white;
+        &:hover, &:focus, &:active{
+            color: $cor5;
+        }
+    }
+    a{
+        color: white;
+        text-decoration: none;
+        &:hover, &:focus, &:active{
+            color: $cor5;
+            text-decoration: underline;
+        }
+    }
+}
+
 @media screen and (min-width:992px){
     header{
         .container_divs{
