@@ -74,7 +74,7 @@ main .container_inicio .inicio .inicio_text button {
   margin-top: 1em;
 }
 main .container_inicio .inicio .inicio_img img {
-  max-height: 600px;
+  height: 600px;
   -o-object-fit: fill;
      object-fit: fill;
 }
@@ -112,6 +112,10 @@ main .pag_02 .fotos {
   background-color: #efefef;
 }
 main .pag_02 .fotos .todas_div div img {
+  height: 400px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 15px;
 }
 main .pag_02 .fotos a {
@@ -184,4 +188,4 @@ footer a:hover, footer a:focus, footer a:active {
   header .container_divs .menu nav ul li a:hover {
     text-decoration: none;
   }
-}/*# sourceMappingURL=pag01.css.map */
+}/*# sourceMappingURL=style.css.map */

@@ -59,6 +59,17 @@ header .redes a i:hover {
 main {
   color: black;
 }
+main .img_texto {
+  background: url(../imagens/fundo_persona.svg) no-repeat center center;
+  background-size: cover;
+}
+main .img_texto .texto {
+  color: white;
+}
+main .img_texto .bone_img img {
+  -o-object-fit: fill;
+     object-fit: fill;
+}
 main .config_modelo {
   border-radius: 20px;
 }

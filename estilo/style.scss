@@ -86,7 +86,7 @@ main{
             }
             .inicio_img{
                 img{
-                    max-height: 600px;
+                    height: 600px;
                     object-fit: fill;
                 }
             }
@@ -130,6 +130,9 @@ main{
             .todas_div{
                 div{
                     img{
+                        height: 400px;
+                        width: 100%;
+                        object-fit: cover;
                         border-radius: 15px;
                     }
                 }

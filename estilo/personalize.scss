@@ -67,6 +67,19 @@ header{
 
 main{
     color: black;
+    .img_texto{
+        background: url(../imagens/fundo_persona.svg) no-repeat center center;
+        background-size: cover;
+        .texto{
+            color: white;
+        }
+        .bone_img{
+            img{
+                object-fit: fill;
+            }
+        }
+    }
+
     .config_modelo{
         border-radius: 20px;
         .config{
