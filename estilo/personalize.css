@@ -60,7 +60,7 @@ main {
   color: black;
 }
 main .comeco img {
-  height: 80vh;
+  height: 70vh;
   -o-object-fit: cover;
      object-fit: cover;
 }
