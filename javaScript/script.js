@@ -65,7 +65,7 @@ function carregarModelo(tipo) {
     $('input[name="logo"]').val('');
 
     const loader = new THREE.GLTFLoader();
-    loader.load(`models/${tipo}.glb`,
+    loader.load(`../models/${tipo}.glb`,
         function (gltf) {
             const modelo = gltf.scene;
 

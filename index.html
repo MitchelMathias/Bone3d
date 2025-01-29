@@ -3,101 +3,268 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualizador de Modelo 3D</title>
-    <link href="estilo/style.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="lib/bootstrap.min.css">
+    <link rel="stylesheet" href="estilo/style.css">
+    <title>Cap&Arte</title>
 </head>
-<body>
-    <header>
-        <section class="row m-auto container p-3">
-            <article class="col-12 d-flex justify-content-between align-items-center">
-                <h1>Seu Boné</h1>
-                <article class="links ">
-                    <a href="#">Inicio</a>
-                    <a href="#">Produtos</a>
-                    <a href="#">Quem Somos</a>
-                    <a href="#">Duvidas</a>
-                    <a href="#">Sac</a>
-                    <a href="#">Blog</a>
+<body id="inicio">
+    <header class="cabecalho py-lg-3 py-2">
+        <div class="row m-auto container">
+            <section class="col-12 d-flex flex-column flex-md-row flex-lg-row align-items-center justify-content-lg-between justify-content-md-between container_divs">
+                <article class="logo">
+                    <img class="img-fluid" src="imagens/logo.png" alt="">
                 </article>
-                <button class="btn btn-primary">Orçamento</button>
-            </article>
-        </section>
+                <article class="menu navbar-expand-lg"> 
+                    <button class="navbar navbar-toggler d-block m-auto my-2 d-lg-none" data-bs-target=".navbar-collapse" data-bs-toggle="collapse">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <nav class="navbar-collapse collapse">
+                        <ul class="nav d-block m-auto p-2 d-lg-flex text-center">
+                            <li class="py-2 my-1"><a href="index.html">Inicio</a></li>
+                            <li class="py-2 my-1"><a href="#">Quem Somos</a></li>
+                            <li class="py-2 my-1"><a href="#">Produtos</a></li>
+                            <li class="py-2 my-1"><a href="#">Catálogo</a></li>
+                            <li class="py-2 my-1"><a href="#">Orçamento</a></li>
+                            <li class="py-2 my-1"><a href="/paginas/personalize.html">Personalize seu Cap</a></li>
+                        </ul>
+                    </nav>
+                </article>
+                <article class="redes d-flex">
+                    <a href="https://wa.me/554135678114"><i class="bi bi-whatsapp"></i></a>
+                    <a href="https://www.facebook.com/people/Cap-e-Arte-Bordados/100088458332487/?mibextid=LQQJ4d554135678114"><i class="bi bi-facebook"></i></a>
+                    <a href="https://www.instagram.com/capeartebordados?igshid=YmMyMTA2M2Y%3D"><i class="bi bi-instagram"></i></a>
+                </article>
+            </section>
+        </div>
     </header>
     <main>
-        <section class="row d-flex flex-wrap-reverse m-auto container p-5 config_modelo">
-            <section class="col-lg-4 col-md-12 col-12 p-0 config">
-                <h2 class="text-center my-2">Personalize seu Boné</h2>
-                <form id="formulario" method="post" class="m-3" action="php/formulariop.php">
-                    <div class="d-flex justify-content-start align-items-center mb-2">
-                        <label for="fecho">Tipo de Fecho:</label>
-                        <select class=" form-select" name="fecho" id="fecho">
-                            <option value="sanap_back">Snap Back</option>
-                            <option value="strap_back">Strapback</option>
-                            <option value="fitted">Fitted</option>
-                        </select>
+        <div class="container_inicio p-3 p-lg-5">
+            <section class="row container m-auto inicio p-0">
+                <article class="col-lg-8 col-12 d-flex flex-column justify-content-center align-items-center align-items-lg-start  text-center text-lg-start inicio_text p-4">
+                    <p class="pt-2">Enviamos para todo Brasil</p>
+                    <h1>Bonés <strong>Exclusivos</strong> <br>do seu jeito</h1>
+                    <p>Patch, Bordado Convencional, Gravação a Laser, Sublimação e Bordado 3D – Alto Relevo. O seu boné personalizado do seu jeito! Faça o seu orçamento ainda hoje.</p>
+                    <button class="btn btn-primary p-3 rounded-3">Faça o Orçamento</button>
+                </article>
+                <article class="col-lg-4 col-12 p-0 inicio_img">
+                    <div class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div data-bs-interval="1000" class="carousel-item active">
+                                <img class="w-100" src="imagens/anime_(2).jpeg" alt="">
+                            </div>
+                            <div data-bs-interval="1000" class="carousel-item ">
+                                <img class="w-100" src="imagens/anime_(3).jpeg" alt="">
+                            </div>
+                            <div data-bs-interval="1000" class="carousel-item ">
+                                <img class="w-100" src="imagens/anime_(4).jpeg" alt="">
+                            </div>
+                            <div data-bs-interval="1000" class="carousel-item ">
+                                <img class="w-100" src="imagens/anime_(5).jpeg" alt="">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target=".carousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target=".carousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        </button>
+                        <ol class="carousel-indicators list-unstyled">
+                            <li data-bs-target=".carousel" data-bs-slide-to="0" class="active"></li>
+                            <li data-bs-target=".carousel" data-bs-slide-to="1"></li>
+                            <li data-bs-target=".carousel" data-bs-slide-to="2"></li>
+                            <li data-bs-target=".carousel" data-bs-slide-to="3"></li>
+                        </ol>
                     </div>
-                    <div class="d-flex justify-content-start align-items-center mb-2">
-                        <label for="tipo_bone">Tipo de Bone:</label>
-                        <select title="Escolha" class=" form-select" id="tipo_bone">
-                            <option value="01_trucker">Trucker</option>
-                            <option value="02_americano">Americano</option>
-                            <option value="03_aba_reta">Aba Reta</option>
-                            <option value="04_new_york">New York</option>
-                            <option value="05_viseira">Viseira</option>
-                            <option value="06_bucket">Bucket</option>
-                        </select>
-                    </div>
-                    <div class="mb-1 corpo d-flex align-items-center">
-                        <label for="cor_do_corpo">Cor do Corpo:</label>
-                        <input value="rgb(0, 0, 0)" type="radio" name="cor_do_corpo" id="cor_do_corpo" class="preto">
-                        <input value="rgb(245, 245, 220)" type="radio" name="cor_do_corpo" id="cor_do_corpo" class="bage">
-                        <input value="rgb(0, 123, 255)" type="radio" name="cor_do_corpo" id="cor_do_corpo" class="azul">
-                        <input value="rgb(255, 0, 0)" type="radio" name="cor_do_corpo" id="cor_do_corpo" class="vermelho">
-                    </div>
-                    <div class="mb-1 frente d-flex align-items-center">
-                        <label for="cor_da_frente">Cor da Frente:</label>
-                        <input value="rgb(0, 0, 0)" type="radio"name="cor_da_frente" id="cor_da_frente" class="preto" >
-                        <input value="rgb(245, 245, 220)" type="radio"name="cor_da_frente" id="cor_da_frente" class="bage" >
-                        <input value="rgb(0, 123, 255)" type="radio"name="cor_da_frente" id="cor_da_frente" class="azul"  >
-                        <input value="rgb(255, 0, 0)" type="radio"name="cor_da_frente" id="cor_da_frente" class="vermelho" >
-                    </div>
-                    <div class="mb-1 aba_cima d-flex align-items-center">
-                        <label for="aba_cima">Aba Cima:</label>
-                        <input value="rgb(0, 0, 0)" type="radio" name="aba_cima" class="preto" id="aba_cima">
-                        <input value="rgb(245, 245, 220)" type="radio" name="aba_cima" class="bage" id="aba_cima">
-                        <input value="rgb(0, 123, 255)" type="radio" name="aba_cima" class="azul" id="aba_cima">
-                        <input value="rgb(255, 0, 0)" type="radio" name="aba_cima" class="vermelho" id="aba_cima">
-                    </div>
-                    <div class="mb-1 aba_baixo d-flex align-items-center">
-                        <label for="aba_baixo">Aba Baixo:</label>
-                        <input value="rgb(0, 0, 0)" type="radio" name="aba_baixo" class="preto" id="aba_baixo">
-                        <input value="rgb(245, 245, 220)" type="radio" name="aba_baixo" class="bage" id="aba_baixo">
-                        <input value="rgb(0, 123, 255)" type="radio" name="aba_baixo" class="azul" id="aba_baixo">
-                        <input value="rgb(255, 0, 0)" type="radio" name="aba_baixo" class="vermelho" id="aba_baixo">
-                    </div>
-                    <div class="my-2">
-                        <label class="form-label w-100" for="logo">Envie o Arquivo com sua logo:</label>
-                        <input class="form-control" type="file" name="logo" id="logo">
-                    </div>
-                    <textarea class="rounded-2 w-100" id="detalhes" placeholder="Digite os detalhes aqui"></textarea>
-                    <button type="submit" class="btn btn-primary">Enviar</button>
-                    <button type="reset" class="btn btn-primary">Apagar</button>
-                </form>
+                </article>
             </section>
-            <section class="col-lg-8 col-md-12 col-12 p-0 modelo">
-                <div id="canvas-container"></div>
+        </div>
+        <section class="my-5 pag_02">
+            <section class="row m-auto container text-center conversao ">
+                <article class="col-6 col-lg-3">
+                    <div class="rounded-3 d-flex quant">
+                        <i class="bi bi-backpack3-fill"></i>
+                        <div  class="w-100">
+                            <h4>Quantidade</h4>
+                            <p>A quantidade mínima para produção são 5 unidades</p>
+                        </div>
+                    </div>
+                </article>
+                <article class="col-6 col-lg-3">
+                    <div class="rounded-3 d-flex quant">
+                        <i class="bi bi-box-fill"></i>
+                        <div  class="w-100">
+                            <h4>Entrega</h4>
+                            <p>Enviamos para todo Brasil</p>
+                        </div>
+                    </div>
+                </article>
+                <article class="col-6 col-lg-3">
+                    <div class="rounded-3 d-flex quant ">
+                        <i class="bi bi-currency-exchange"></i>
+                        <div  class="w-100">
+                            <h4>Pagamento</h4>
+                            <p>Cartão de crédito, boleto, transferência e pix</p>
+                        </div>
+                    </div>
+                </article>
+                <article class="col-6 col-lg-3">
+                    <div class="rounded-3 d-flex quant ">
+                        <i class="bi bi-award-fill"></i>
+                        <div  class="w-100">
+                            <h4>Qualidade</h4>
+                            <p>Garantimos qualidade nos produtos e atendimento</p>
+                        </div>
+                    </div>
+                </article>
             </section>
-        </section>        
+            <section class="container text-center my-5 p-3 p-lg-5 induz_compra">
+                <h1>Faça seu orçamento</h1>
+                <button class="btn btn-primary d-block m-auto p-3 my-4">APROVEITE A PROMOÇÃO</button>
+            </section>
+            <section class="row m-auto my-5 vamo_pedir">
+                <article class="col-12 text-center my-5">
+                    <h1> VAMOS FAZER UM <strong>PEDIDO</strong>?</h1>
+                    <div class="row m-auto">
+                        <div class="col-6 mt-5">
+                            <i class="bi bi-envelope-open-fill"></i>
+                            <h4>Personalize seu boné</h4>
+                            <p>Você envia o seu pedido de orçamento através do nosso site ou WhatsApp com todos os detalhes para a produção dos bonés.</p>
+                        </div>
+                        <div class="col-6 mt-5">
+                            <i class="bi bi-truck-front-fill"></i>
+                            <h4>Fabricação</h4>
+                            <p>Após a aprovação do pedido, iremos fabricar seus bonés personalizados e enviaremos para seu endereço, em qualquer lugar do Brasil!
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <section class="fotos p-5">
+                <article class="row m-auto container todas_div">
+                    <div class="col-12 col-md-6 col-lg-4 m-auto pb-4">
+                        <img class="img-fluid" src="https://picsum.photos/400" alt="">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 m-auto pb-4">
+                        <img class="img-fluid" src="https://picsum.photos/400" alt="">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 m-auto pb-4">
+                        <img class="img-fluid" src="https://picsum.photos/400" alt="">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 m-auto pb-4">
+                        <img class="img-fluid" src="https://picsum.photos/400" alt="">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 m-auto pb-4">
+                        <img class="img-fluid" src="https://picsum.photos/400" alt="">
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 m-auto pb-4">
+                        <img class="img-fluid" src="https://picsum.photos/400" alt="">
+                    </div>
+                </article>
+                <a href="https://www.instagram.com/capeartebordados?igshid=YmMyMTA2M2Y%3D" class="btn btn-primary d-block m-auto p-2">Ver mais</a>
+            </section>
+            <section class="tipos container my-5">
+                <article class="row m-auto tipos_bones">
+                    <div class="col-12 col-md-4 col-lg-4 bone_destaque">
+                        <div class="trucker">Trucker</div>
+                    </div>
+        
+                    <div class="col-12 col-md-8 col-lg-8 div_outros">
+                        <div class="row outros">
+                            <div class="col-12 col-md-6 col-lg-6 div_bones">
+                                <div class="trucker_brasicap">Trucker BrasiCap</div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-6 div_bones">
+                                <div class="americano">Americano</div>
+                            </div>
+                            <div class="col-12 div_bones_12">
+                                <div class="bones_fivela">Bones Fivela</div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <section class="duvidas">
+                <article>
+                    <h1 class="text-center my-5">Com <strong>duvidas</strong>?</h1>
+                </article>
+                <article class="row container m-auto">
+                    <div class="col-12 div_duvidas d-flex flex-column">
+                        <h1 class="text-center mb-5">Não perca mais tempo!</h1>
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <strong>Como funciona?</strong>
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <strong>Nosso atendimento é simples e rápido!</strong> Você pode realizar seu pedido diretamente pelo WhatsApp ou pela página <strong><a href="#">"Personalize seu Boné"</a></strong> clicando. 
+                                        Oferecemos o catálogo de produtos e coletamos informações básicas para montar seu orçamento com as opções de modelo e tipo de estampa (bordado, gravação a laser, sublimação, etc). Após a aprovação da arte final, iniciamos a fabricação e enviamos sua mercadoria para qualquer lugar do Brasil!
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        <strong>Entrega dos pedidos?</strong>
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        O envio pode ser feito via Transportadoras (Latam Cargo, Azul Cargo, Jadlog e TNT) ou Correios. A escolha do modo de entrega e o valor do frete é pago pelo cliente.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        <strong>Formas de Pagamento</strong>
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <h5>As formas de pagamento são:</h5>
+                                        <ul>
+                                            <li class="mt-2">Pix / Transferência / Depósito Bancário <br>
+                                                50% no pedido + 50% na entrega</li>
+                                            <li class="mt-2">Boleto Bancário <br>
+                                                50% no pedido + 50% após fabricação.</li>
+                                            <li class="mt-2">Cartão de Crédito <br>
+                                                Acréscimo de 5% no valor do pedido</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h1 class="text-center mt-5">Faça seu orçamento!</h1>
+                        <a href="https://wa.me/554135678114" class="btn btn-primary p-3 d-block m-auto my-5">Fazer Orçamento</a>
+                    </div>
+                </article>
+            </section>
+        </section>
     </main>
     <footer>
-
+        <section class="row container m-auto p-3 d-flex justify-content-lg-between align-items-center">
+            <article class="col-12 col-lg-6 text-center text-lg-start">
+                <img src="imagens/logo.png" alt="">
+                <p>Fazemos qualquer quantidade de bonés personalizados para o seu evento!</p>
+                <div class="redes d-flex justify-content-center justify-content-lg-start">
+                    <a href="https://wa.me/554135678114"><i class="bi bi-whatsapp"></i></a>
+                    <a href="https://www.facebook.com/people/Cap-e-Arte-Bordados/100088458332487/?mibextid=LQQJ4d554135678114"><i class="bi bi-facebook"></i></a>
+                    <a href="https://www.instagram.com/capeartebordados?igshid=YmMyMTA2M2Y%3D"><i class="bi bi-instagram"></i></a>
+                </div>
+            </article>
+            <article class="col-12 col-lg-6 text-center text-lg-end">
+                <h4>Informações de Contato</h4>
+                <p><a href="https://wa.me/554135678114"><i class="bi bi-whatsapp"></i> 55 41 35678114</a></p>
+                <p>Pedro Zagonel, 853 - Novo Mundo, 81050-110
+                    Curitiba - PR</p>
+            </article>
+        </section>
+        <hr class="container">
+        <p class="text-center m-0 pb-3">&copy;Copyright 2025 Cap&arte – All Rights Reserved Criado por CWD Code Brasil</p>
     </footer>
-    <script src="lib/three.min.js"></script>
-    <script src="lib/GLTFLoader.js"></script>
-    <script src="lib/OrbitControls.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>     
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="javaScript/script.js"></script>
+    <script src="lib/bootstrap.bundle.min.js"></script>
 </body>
 </html>

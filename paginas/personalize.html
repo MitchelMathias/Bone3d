@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizador de Modelo 3D</title>
+    <link rel="stylesheet" href="../lib/bootstrap.min.css">
+    <link href="../estilo/personalize.css" rel="stylesheet">
+</head>
+<body>
+    <header class="cabecalho py-lg-3 py-2">
+        <div class="row m-auto container">
+            <section class="col-12 d-flex flex-column flex-md-row flex-lg-row align-items-center justify-content-lg-between justify-content-md-between container_divs">
+                <article class="logo">
+                    <img class="img-fluid" src="../imagens/logo.png" alt="">
+                </article>
+                <article class="menu navbar-expand-lg"> 
+                    <button class="navbar navbar-toggler d-block m-auto my-2 d-lg-none" data-bs-target=".navbar-collapse" data-bs-toggle="collapse">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <nav class="navbar-collapse collapse">
+                        <ul class="nav d-block m-auto p-2 d-lg-flex text-center">
+                            <li class="py-2 my-1"><a href="../index.html">Inicio</a></li>
+                            <li class="py-2 my-1"><a href="#">Quem Somos</a></li>
+                            <li class="py-2 my-1"><a href="#">Produtos</a></li>
+                            <li class="py-2 my-1"><a href="#">Catálogo</a></li>
+                            <li class="py-2 my-1"><a href="#">Orçamento</a></li>
+                            <li class="py-2 my-1"><a href="#">Personalize seu Cap</a></li>
+                        </ul>
+                    </nav>
+                </article>
+                <article class="redes d-flex">
+                    <a href="https://wa.me/554135678114"><i class="bi bi-whatsapp"></i></a>
+                    <a href="https://www.facebook.com/people/Cap-e-Arte-Bordados/100088458332487/?mibextid=LQQJ4d554135678114"><i class="bi bi-facebook"></i></a>
+                    <a href="https://www.instagram.com/capeartebordados?igshid=YmMyMTA2M2Y%3D"><i class="bi bi-instagram"></i></a>
+                </article>
+            </section>
+        </div>
+    </header>
+    <main>
+        <section class="row d-flex flex-wrap-reverse m-auto container p-5 config_modelo">
+            <section class="col-lg-4 col-md-12 col-12 p-0 config">
+                <h2 class="text-center my-2">Personalize seu Boné</h2>
+                <form id="formulario" method="post" class="m-3" action="../api/formulario.php">
+                    <div class="d-flex justify-content-start align-items-center mb-2">
+                        <label for="fecho">Tipo de Fecho:</label>
+                        <select class=" form-select" name="fecho" id="fecho">
+                            <option value="sanap_back">Snap Back</option>
+                            <option value="strap_back">Strapback</option>
+                            <option value="fitted">Fitted</option>
+                        </select>
+                    </div>
+                    <div class="d-flex justify-content-start align-items-center mb-2">
+                        <label for="tipo_bone">Tipo de Bone:</label>
+                        <select title="Escolha" class=" form-select" id="tipo_bone">
+                            <option value="01_trucker">Trucker</option>
+                            <option value="02_americano">Americano</option>
+                            <option value="03_aba_reta">Aba Reta</option>
+                            <option value="04_new_york">New York</option>
+                            <option value="05_viseira">Viseira</option>
+                            <option value="06_bucket">Bucket</option>
+                        </select>
+                    </div>
+                    <div class="mb-1 corpo d-flex align-items-center">
+                        <label for="cor_do_corpo">Cor do Corpo:</label>
+                        <input value="rgb(0, 0, 0)" type="radio" name="cor_do_corpo" id="cor_do_corpo" class="preto">
+                        <input value="rgb(245, 245, 220)" type="radio" name="cor_do_corpo" id="cor_do_corpo" class="bage">
+                        <input value="rgb(0, 123, 255)" type="radio" name="cor_do_corpo" id="cor_do_corpo" class="azul">
+                        <input value="rgb(255, 0, 0)" type="radio" name="cor_do_corpo" id="cor_do_corpo" class="vermelho">
+                    </div>
+                    <div class="mb-1 frente d-flex align-items-center">
+                        <label for="cor_da_frente">Cor da Frente:</label>
+                        <input value="rgb(0, 0, 0)" type="radio"name="cor_da_frente" id="cor_da_frente" class="preto" >
+                        <input value="rgb(245, 245, 220)" type="radio"name="cor_da_frente" id="cor_da_frente" class="bage" >
+                        <input value="rgb(0, 123, 255)" type="radio"name="cor_da_frente" id="cor_da_frente" class="azul"  >
+                        <input value="rgb(255, 0, 0)" type="radio"name="cor_da_frente" id="cor_da_frente" class="vermelho" >
+                    </div>
+                    <div class="mb-1 aba_cima d-flex align-items-center">
+                        <label for="aba_cima">Aba Cima:</label>
+                        <input value="rgb(0, 0, 0)" type="radio" name="aba_cima" class="preto" id="aba_cima">
+                        <input value="rgb(245, 245, 220)" type="radio" name="aba_cima" class="bage" id="aba_cima">
+                        <input value="rgb(0, 123, 255)" type="radio" name="aba_cima" class="azul" id="aba_cima">
+                        <input value="rgb(255, 0, 0)" type="radio" name="aba_cima" class="vermelho" id="aba_cima">
+                    </div>
+                    <div class="mb-1 aba_baixo d-flex align-items-center">
+                        <label for="aba_baixo">Aba Baixo:</label>
+                        <input value="rgb(0, 0, 0)" type="radio" name="aba_baixo" class="preto" id="aba_baixo">
+                        <input value="rgb(245, 245, 220)" type="radio" name="aba_baixo" class="bage" id="aba_baixo">
+                        <input value="rgb(0, 123, 255)" type="radio" name="aba_baixo" class="azul" id="aba_baixo">
+                        <input value="rgb(255, 0, 0)" type="radio" name="aba_baixo" class="vermelho" id="aba_baixo">
+                    </div>
+                    <div class="my-2">
+                        <label class="form-label w-100" for="logo">Envie o Arquivo com sua logo:</label>
+                        <input class="form-control" type="file" name="logo" id="logo">
+                    </div>
+                    <textarea class="rounded-2 w-100" id="detalhes" placeholder="Digite os detalhes aqui"></textarea>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                    <button type="reset" class="btn btn-primary">Apagar</button>
+                </form>
+            </section>
+            <section class="col-lg-8 col-md-12 col-12 p-0 modelo">
+                <div id="canvas-container"></div>
+            </section>
+        </section>        
+    </main>
+    <footer>
+
+    </footer>
+    <script src="../lib/three.min.js"></script>
+    <script src="../lib/GLTFLoader.js"></script>
+    <script src="../lib/OrbitControls.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>     
+    <script src="../lib/bootstrap.bundle.min.js"></script>
+    <script src="../javaScript/script.js"></script>
+</body>
+</html>

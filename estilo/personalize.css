@@ -1,0 +1,139 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+* {
+  box-sizing: border-box;
+  font-family: lato;
+  font-weight: 300;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background-color: #000000;
+}
+header .logo {
+  max-width: 250px;
+}
+header .menu {
+  width: 100%;
+}
+header .menu button {
+  border: 1px solid white;
+}
+header .menu button i {
+  color: white;
+}
+header .menu nav {
+  border: 1px solid white;
+  border-radius: 10px;
+}
+header .menu nav li {
+  border-radius: 10px;
+}
+header .menu nav li a {
+  color: white;
+  text-decoration: none;
+}
+header .menu nav li a:hover {
+  text-decoration: underline;
+}
+header .menu nav li:hover, header .menu nav li:focus {
+  background-color: white;
+}
+header .menu nav li:hover a, header .menu nav li:focus a {
+  color: black;
+}
+header .redes {
+  margin: 1.3em 0;
+}
+header .redes a i {
+  font-size: 1.3em;
+  color: white;
+  margin: 5px;
+}
+header .redes a i:hover {
+  color: #BB0000;
+}
+
+main {
+  color: black;
+}
+main .config_modelo {
+  border-radius: 20px;
+}
+main .config_modelo .config {
+  border: 1px solid black;
+  border-radius: 20px;
+}
+main .config_modelo .config label {
+  width: 35%;
+}
+main .config_modelo .config select {
+  width: 50%;
+}
+main .config_modelo .config input[type=radio] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 3px;
+  border: 2px solid white;
+  position: relative;
+  background-color: black;
+}
+main .config_modelo .config input[type=radio].black {
+  background-color: #000000;
+}
+main .config_modelo .config input[type=radio].black:checked {
+  border: 6px solid black;
+  background-color: darkgray;
+}
+main .config_modelo .config input[type=radio].azul {
+  background-color: #3498db;
+}
+main .config_modelo .config input[type=radio].azul:checked {
+  border: 6px solid black;
+  background-color: darkgray;
+}
+main .config_modelo .config input[type=radio].bage {
+  background-color: #f7f79b;
+}
+main .config_modelo .config input[type=radio].bage:checked {
+  border: 6px solid black;
+  background-color: darkgray;
+}
+main .config_modelo .config input[type=radio].vermelho {
+  background-color: red;
+}
+main .config_modelo .config input[type=radio].vermelho:checked {
+  border: 6px solid black;
+  background-color: darkgray;
+}
+main .config_modelo .config input[type=radio]:checked {
+  border: 6px solid black;
+  background-color: darkgray;
+}
+main .config_modelo .config textarea {
+  height: 100px;
+  resize: none;
+}
+main .config_modelo .modelo {
+  border: 1px solid black;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+@media screen and (min-width: 992px) {
+  header .container_divs .menu nav {
+    border: none;
+  }
+  header .container_divs .menu nav ul li a {
+    padding: 5px;
+  }
+  header .container_divs .menu nav ul li a:hover {
+    text-decoration: none;
+  }
+}/*# sourceMappingURL=personalize.css.map */
