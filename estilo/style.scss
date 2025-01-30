@@ -122,6 +122,9 @@ main{
             border: 1px solid black;
             border-radius: 15px;
             .inicio_text{
+                .fonte{
+                    font-size: clamp(18px, 1.6vw, 2em);
+                }
                 strong{
                     color: $cor5;
                 }

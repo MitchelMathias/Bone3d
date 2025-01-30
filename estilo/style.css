@@ -110,6 +110,9 @@ main .container_inicio .inicio {
   border: 1px solid black;
   border-radius: 15px;
 }
+main .container_inicio .inicio .inicio_text .fonte {
+  font-size: clamp(18px, 1.6vw, 2em);
+}
 main .container_inicio .inicio .inicio_text strong {
   color: #BB0000;
 }
