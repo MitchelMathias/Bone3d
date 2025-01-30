@@ -126,6 +126,13 @@ main .pag_02 .fotos .todas_div div img {
 main .pag_02 .fotos a {
   width: 150px;
 }
+main .pag_02 .tipos .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  border: 1px solid black;
+}
 main .pag_02 .duvidas article > h1 strong {
   color: #BB0000;
 }

@@ -147,7 +147,20 @@ main{
                 width: 150px;
             }
         }
-        
+        .tipos{
+            .container{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 100%;
+                border: 1px solid black;
+                img{
+                    
+                }
+            }
+            
+
+        }
         .duvidas{
             article > h1{
                 strong{
