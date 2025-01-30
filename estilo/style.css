@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 * {
@@ -64,7 +65,10 @@ main .comeco {
   background-repeat: no-repeat;
 }
 main .comeco:hover {
-  opacity: 0.7;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 20%, rgb(0, 0, 0) 80%), url("../imagens/bones_camisas.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 70vh; /* Ajuste conforme necessário */
 }
 main .comeco .text {
   color: white;
@@ -79,8 +83,21 @@ main .comeco .text p {
   font-size: 1.8em;
   font-weight: 300;
 }
+main .comeco .text a {
+  font-size: 1.2em;
+  font-weight: 900;
+  border: none;
+  background-color: #00d739;
+  width: 260px;
+  margin-top: 1em;
+  transition: 0.5s;
+}
+main .comeco .text a:hover, main .comeco .text a:focus, main .comeco .text a:active {
+  transform: scale(1.1);
+  background-color: #00ff44;
+}
 main .container_inicio {
-  background-color: #666666;
+  background-color: #efefef;
   background-size: cover;
 }
 main .container_inicio .inicio {
@@ -92,7 +109,7 @@ main .container_inicio .inicio {
 main .container_inicio .inicio .inicio_text strong {
   color: #BB0000;
 }
-main .container_inicio .inicio .inicio_text button {
+main .container_inicio .inicio .inicio_text a {
   font-size: 1.2em;
   font-weight: 900;
   border: none;
@@ -101,7 +118,7 @@ main .container_inicio .inicio .inicio_text button {
   margin-top: 1em;
   transition: 0.5s;
 }
-main .container_inicio .inicio .inicio_text button:hover, main .container_inicio .inicio .inicio_text button:focus, main .container_inicio .inicio .inicio_text button:active {
+main .container_inicio .inicio .inicio_text a:hover, main .container_inicio .inicio .inicio_text a:focus, main .container_inicio .inicio .inicio_text a:active {
   transform: scale(1.1);
   background-color: #00ff44;
 }
@@ -129,21 +146,34 @@ main .pag_02 .conversao .col-6.col-lg-3 .quant i {
 main .pag_02 .conversao .col-6.col-lg-3 .quant h4 {
   color: #BB0000;
 }
+main .pag_02 .conversao .col-6.col-lg-3 .quant a {
+  font-size: 1.2em;
+  font-weight: 900;
+  border: none;
+  background-color: #00d739;
+  width: 260px;
+  margin-top: 1em;
+  transition: 0.5s;
+}
+main .pag_02 .conversao .col-6.col-lg-3 .quant a:hover, main .pag_02 .conversao .col-6.col-lg-3 .quant a:focus, main .pag_02 .conversao .col-6.col-lg-3 .quant a:active {
+  transform: scale(1.1);
+  background-color: #00ff44;
+}
 main .pag_02 .induz_compra {
   color: white;
   max-width: 70%;
   border-radius: 15px;
   background-color: black;
 }
-main .pag_02 .induz_compra button {
+main .pag_02 .induz_compra a {
   font-weight: 900;
   border: none;
   background-color: #00d739;
-  width: 200px;
+  max-width: 235px;
   margin-top: 1em;
   transition: 0.5s;
 }
-main .pag_02 .induz_compra button:hover, main .pag_02 .induz_compra button:focus, main .pag_02 .induz_compra button:active {
+main .pag_02 .induz_compra a:hover, main .pag_02 .induz_compra a:focus, main .pag_02 .induz_compra a:active {
   transform: scale(1.1);
   background-color: #00ff44;
 }
@@ -281,5 +311,21 @@ footer a:hover, footer a:focus, footer a:active {
   }
   header .container_divs .menu nav ul li a:hover {
     text-decoration: none;
+  }
+}
+@media screen and (max-width: 770px) {
+  main .comeco .text {
+    margin: auto !important;
+    width: 90%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  main .comeco .text h1 {
+    font-size: 2em;
+  }
+  main .comeco .text p {
+    font-size: 1.4em;
   }
 }/*# sourceMappingURL=style.css.map */

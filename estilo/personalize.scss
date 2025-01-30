@@ -7,6 +7,7 @@ $cor2:#FFFFFF;
 $cor3:#333333;
 $cor4:#666666;
 $cor5:#BB0000;
+$cor6:#efefef;
 
 *{
     box-sizing: border-box;
@@ -66,15 +67,20 @@ header{
 }
 
 main{
+    background-color: #efefef;
     color: black;
     .comeco{
         height: 70vh;
-        background-image: url(/imagens/bones_camisas.jpg);
+        background-image: url(../imagens/bones_camisas.jpg);
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
         &:hover{
-            opacity: 0.7;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 1) 80%), 
+                url('../imagens/bones_camisas.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 70vh; /* Ajuste conforme necessário */
         }
         .text{
             color: white;
@@ -88,6 +94,20 @@ main{
                 font-size: 1.8em;
                 font-weight: 300;
             }
+            a{
+                font-size: 1.2em;
+                font-weight: 900;
+                border: none;
+                background-color: #00d739;
+                width: 260px;
+                margin-top: 1em;
+                transition: 0.5s;
+                &:hover, &:focus, &:active{
+                    transform: scale(1.1);
+                    background-color: #00ff44;
+                }
+            }
+            
         }
     }
     .config_modelo{
@@ -226,6 +246,27 @@ footer{
                             }
                         }
                     }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:770px){
+    main{
+        .comeco{
+            .text{
+                margin: auto !important;
+                width: 90%;
+                margin: auto;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                h1{
+                    font-size: 2em;
+                }
+                p{
+                    font-size: 1.4em;
                 }
             }
         }
