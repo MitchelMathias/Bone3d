@@ -83,7 +83,7 @@ main .container_inicio .inicio .inicio_text button {
   margin-top: 1em;
   transition: 0.5s;
 }
-main .container_inicio .inicio .inicio_text button:hover {
+main .container_inicio .inicio .inicio_text button:hover, main .container_inicio .inicio .inicio_text button:focus, main .container_inicio .inicio .inicio_text button:active {
   transform: scale(1.1);
   background-color: #00ff44;
 }
@@ -116,11 +116,11 @@ main .pag_02 .induz_compra button {
   font-weight: 900;
   border: none;
   background-color: #00d739;
-  width: 260px;
+  width: 200px;
   margin-top: 1em;
   transition: 0.5s;
 }
-main .pag_02 .induz_compra button:hover {
+main .pag_02 .induz_compra button:hover, main .pag_02 .induz_compra button:focus, main .pag_02 .induz_compra button:active {
   transform: scale(1.1);
   background-color: #00ff44;
 }
@@ -194,7 +194,7 @@ main .pag_02 .duvidas article .div_duvidas .btn.btn-primary {
   margin-top: 1em;
   transition: 0.5s;
 }
-main .pag_02 .duvidas article .div_duvidas .btn.btn-primary:hover {
+main .pag_02 .duvidas article .div_duvidas .btn.btn-primary:hover, main .pag_02 .duvidas article .div_duvidas .btn.btn-primary:focus, main .pag_02 .duvidas article .div_duvidas .btn.btn-primary:active {
   transform: scale(1.1);
   background-color: #00ff44;
 }

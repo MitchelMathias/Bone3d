@@ -93,7 +93,7 @@ main{
                     width: 260px;
                     margin-top: 1em;
                     transition: 0.5s;
-                    &:hover{
+                    &:hover, &:focus, &:active{
                         transform: scale(1.1);
                         background-color: #00ff44;
                     }
@@ -133,10 +133,10 @@ main{
                 font-weight: 900;
                 border: none;
                 background-color: #00d739;
-                width: 260px;
+                width: 200px;
                 margin-top: 1em;
                 transition: 0.5s;
-                &:hover{
+                &:hover, &:focus, &:active{
                     transform: scale(1.1);
                     background-color: #00ff44;
                 }
@@ -223,7 +223,7 @@ main{
                         width: 260px;
                         margin-top: 1em;
                         transition: 0.5s;
-                        &:hover{
+                        &:hover, &:focus, &:active{
                             transform: scale(1.1);
                             background-color: #00ff44;
                         }
