@@ -199,6 +199,9 @@ main{
                     a{
                         color: #000000;
                         text-decoration: none;
+                        &:hover, &:focus, &:active{
+                            color: $cor5;
+                        } 
                     }
                 }
                 img{
