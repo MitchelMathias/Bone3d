@@ -59,10 +59,28 @@ header .redes a i:hover {
 main {
   color: black;
 }
-main .comeco img {
+main .comeco {
   height: 70vh;
-  -o-object-fit: cover;
-     object-fit: cover;
+  background-image: url(/imagens/bones_camisas.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+main .comeco:hover {
+  opacity: 0.7;
+}
+main .comeco .text {
+  color: white;
+  width: 50%;
+  height: 100%;
+}
+main .comeco .text h1 {
+  font-size: 3em;
+  font-weight: bold;
+}
+main .comeco .text p {
+  font-size: 1.8em;
+  font-weight: 300;
 }
 main .config_modelo {
   max-width: 1250px;
