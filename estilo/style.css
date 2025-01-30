@@ -70,10 +70,14 @@ main .comeco:hover {
   background-position: center;
   height: 70vh; /* Ajuste conforme necessário */
 }
+main .comeco:hover .text {
+  transform: scale(1.04);
+}
 main .comeco .text {
   color: white;
   width: 50%;
   height: 100%;
+  transition: 0.5s;
 }
 main .comeco .text h1 {
   font-size: 3em;

@@ -81,8 +81,12 @@ main{
             background-size: cover;
             background-position: center;
             height: 70vh; /* Ajuste conforme necessário */
+            .text{
+                transform: scale(1.04);
+            }
         }
         .text{
+            transition: 0.5s;
             color: white;
             width: 50%;;
             height: 100%;

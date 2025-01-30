@@ -80,11 +80,15 @@ main{
             background-size: cover;
             background-position: center;
             height: 70vh; /* Ajuste conforme necessário */
+            .text{
+                transform: scale(1.04);
+            }
         }
         .text{
             color: white;
             width: 50%;;
             height: 100%;
+            transition: 0.5s;
             h1{
                 font-size: 3em;
                 font-weight: bold;
