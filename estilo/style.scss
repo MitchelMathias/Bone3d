@@ -120,6 +120,11 @@ main{
                 img{
                     height: 600px;
                     object-fit: fill;
+                    transition: 1s;
+                    &:hover, &:focus, &:active{
+                        filter: brightness(1.5);
+                        transform: scale(1.05);
+                    }
                 }
             }
         }
@@ -178,6 +183,12 @@ main{
                         width: 100%;
                         object-fit: cover;
                         border-radius: 15px;
+                        transition: 1s;
+                        &:hover, &:focus, &:active{
+                            transform: scale(1.2);
+                            filter: brightness(1.5);
+                            transform: scale(1.05);
+                        }
                     }
                 }
             }

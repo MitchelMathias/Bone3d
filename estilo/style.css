@@ -109,6 +109,11 @@ main .container_inicio .inicio .inicio_img img {
   height: 600px;
   -o-object-fit: fill;
      object-fit: fill;
+  transition: 1s;
+}
+main .container_inicio .inicio .inicio_img img:hover, main .container_inicio .inicio .inicio_img img:focus, main .container_inicio .inicio .inicio_img img:active {
+  filter: brightness(1.5);
+  transform: scale(1.05);
 }
 main .pag_02 .conversao .col-6.col-lg-3 {
   height: 150px;
@@ -161,6 +166,12 @@ main .pag_02 .fotos .todas_div div img {
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 15px;
+  transition: 1s;
+}
+main .pag_02 .fotos .todas_div div img:hover, main .pag_02 .fotos .todas_div div img:focus, main .pag_02 .fotos .todas_div div img:active {
+  transform: scale(1.2);
+  filter: brightness(1.5);
+  transform: scale(1.05);
 }
 main .pag_02 .fotos a {
   width: 150px;
