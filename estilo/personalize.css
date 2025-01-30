@@ -65,11 +65,18 @@ main .comeco img {
      object-fit: cover;
 }
 main .config_modelo {
+  max-width: 1250px;
   border-radius: 20px;
 }
-main .config_modelo .config {
+main .config_modelo .config .div_borda {
+  margin: 10px;
   border: 1px solid black;
   border-radius: 20px;
+}
+main .config_modelo .config .scroll_interno {
+  overflow-y: scroll;
+  margin: 10px;
+  max-height: 400px;
 }
 main .config_modelo .config label {
   width: 35%;
@@ -125,7 +132,9 @@ main .config_modelo .config textarea {
   height: 100px;
   resize: none;
 }
-main .config_modelo .modelo {
+main .config_modelo .borda .modelo {
+  height: 420px;
+  margin: 10px;
   border: 1px solid black;
   overflow: hidden;
   border-radius: 20px;
