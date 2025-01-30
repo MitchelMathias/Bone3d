@@ -62,7 +62,7 @@ main .comeco img {
      object-fit: cover;
 }
 main .container_inicio {
-  background: url(../imagens/foto.png) center no-repeat;
+  background-color: #666666;
   background-size: cover;
 }
 main .container_inicio .inicio {
@@ -75,8 +75,17 @@ main .container_inicio .inicio .inicio_text strong {
   color: #BB0000;
 }
 main .container_inicio .inicio .inicio_text button {
+  font-size: 1.2em;
+  font-weight: 900;
+  border: none;
+  background-color: #00d739;
   width: 260px;
   margin-top: 1em;
+  transition: 0.5s;
+}
+main .container_inicio .inicio .inicio_text button:hover {
+  transform: scale(1.1);
+  background-color: #00ff44;
 }
 main .container_inicio .inicio .inicio_img img {
   height: 600px;
@@ -103,6 +112,18 @@ main .pag_02 .induz_compra {
   border-radius: 15px;
   background-color: black;
 }
+main .pag_02 .induz_compra button {
+  font-weight: 900;
+  border: none;
+  background-color: #00d739;
+  width: 260px;
+  margin-top: 1em;
+  transition: 0.5s;
+}
+main .pag_02 .induz_compra button:hover {
+  transform: scale(1.1);
+  background-color: #00ff44;
+}
 main .pag_02 .vamo_pedir {
   max-width: 85%;
 }
@@ -126,12 +147,27 @@ main .pag_02 .fotos .todas_div div img {
 main .pag_02 .fotos a {
   width: 150px;
 }
-main .pag_02 .tipos .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  border: 1px solid black;
+main .pag_02 .tipos .container_div {
+  padding: 15px;
+  border-radius: 15px;
+  background-color: #dadada;
+}
+main .pag_02 .tipos .container_div:hover {
+  background-color: #b3b3b3;
+}
+main .pag_02 .tipos .container_div p {
+  display: inline;
+  border-bottom: 2px solid #BB0000;
+}
+main .pag_02 .tipos .container_div p a {
+  color: #000000;
+  text-decoration: none;
+}
+main .pag_02 .tipos .container_div img {
+  transition: 0.5s;
+}
+main .pag_02 .tipos .container_div img:hover {
+  transform: scale(1.1);
 }
 main .pag_02 .duvidas article > h1 strong {
   color: #BB0000;
@@ -149,13 +185,40 @@ main .pag_02 .duvidas article .div_duvidas .accordion .accordion-header button:h
   border-color: transparent;
   background-color: #BB0000;
 }
-main .pag_02 .duvidas article .div_duvidas a {
-  width: 200px;
+main .pag_02 .duvidas article .div_duvidas .btn.btn-primary {
+  font-size: 1.2em;
+  font-weight: 900;
+  border: none;
+  background-color: #00d739;
+  width: 260px;
+  margin-top: 1em;
+  transition: 0.5s;
+}
+main .pag_02 .duvidas article .div_duvidas .btn.btn-primary:hover {
+  transform: scale(1.1);
+  background-color: #00ff44;
 }
 
 footer {
   background-color: #000000;
   color: white;
+}
+footer .maps {
+  min-height: 400px;
+}
+footer .maps .text {
+  text-align: justify;
+}
+footer .maps .mapa {
+  height: 400px;
+  border: 5px solid white;
+  overflow: hidden;
+  border-radius: 15px;
+}
+footer .maps .mapa iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 footer img {
   max-width: 250px;
