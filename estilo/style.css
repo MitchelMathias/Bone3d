@@ -207,7 +207,7 @@ footer .maps {
   min-height: 400px;
 }
 footer .maps .text {
-  text-align: justify;
+  text-align: start;
 }
 footer .maps .mapa {
   height: 400px;
