@@ -57,6 +57,8 @@ header .redes a i:hover {
 }
 
 main .comeco {
+  display: block;
+  overflow: hidden;
   height: 70vh;
   background-image: url(../imagens/banner.png);
   background-size: cover;
@@ -76,12 +78,15 @@ main .comeco .imag img:hover, main .comeco .imag img:focus, main .comeco .imag i
   transform: scale(1.2);
 }
 main .comeco .texto {
+  max-width: 90vw;
+  margin: auto;
   color: white;
 }
 main .comeco .texto strong {
   color: #00d739;
 }
 main .comeco .texto h1 {
+  margin: auto;
   line-height: 0.7em;
   transition: 0.5s;
 }
@@ -328,8 +333,9 @@ footer a:hover, footer a:focus, footer a:active {
     width: 90%;
   }
   main .comeco .texto h1 {
-    font-size: 1.6em;
-    line-height: 0.8em;
+    transform: scale(1.05);
+    font-size: 1.3em;
+    line-height: 1em;
   }
   main .comeco .texto a {
     font-size: 0.8em;

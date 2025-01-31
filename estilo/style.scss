@@ -69,6 +69,8 @@ header{
 
 main{
     .comeco{
+        display: block;
+        overflow: hidden;
         height: 70vh;
         background-image: url(../imagens/banner.png);
         background-size: cover;
@@ -88,11 +90,14 @@ main{
             
         }
         .texto{
+            max-width: 90vw;
+            margin: auto;
             color: white;
             strong{
                 color: #00d739;
             }
             h1{
+                margin: auto;
                 line-height: 0.7em;
                 transition: 0.5s;
                 &:hover,&:focus,&:active{
@@ -380,8 +385,9 @@ footer{
             }
             .texto{
                 h1{
-                    font-size: 1.6em;
-                    line-height: 0.8em;
+                    transform: scale(1.05);
+                    font-size: 1.3em;
+                    line-height: 1em;
                 }
                 a{
                     font-size: .8em; //
