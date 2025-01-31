@@ -71,11 +71,8 @@ main .comeco .imag {
   max-width: 270px;
 }
 main .comeco .imag img {
+  padding-top: 1em;
   width: 100%;
-  transition: 0.5s;
-}
-main .comeco .imag img:hover, main .comeco .imag img:focus, main .comeco .imag img:active {
-  transform: scale(1.2);
 }
 main .comeco .texto {
   max-width: 90vw;
@@ -87,15 +84,12 @@ main .comeco .texto strong {
 }
 main .comeco .texto h1 {
   margin: auto;
-  line-height: 0.7em;
+  line-height: 1em;
   transition: 0.5s;
 }
-main .comeco .texto h1:hover, main .comeco .texto h1:focus, main .comeco .texto h1:active {
-  transform: scale(1.2);
-}
-main .comeco .texto a {
+main .comeco a {
   border-radius: 30px;
-  font-size: 1.2em;
+  font-size: 1.5em;
   font-weight: 900;
   border: none;
   background-color: #00d739;
@@ -103,7 +97,7 @@ main .comeco .texto a {
   margin-top: 0.5em;
   transition: 0.5s;
 }
-main .comeco .texto a:hover, main .comeco .texto a:focus, main .comeco .texto a:active {
+main .comeco a:hover, main .comeco a:focus, main .comeco a:active {
   transform: scale(1.1);
   background-color: #00ff44;
 }
@@ -333,7 +327,6 @@ footer a:hover, footer a:focus, footer a:active {
     width: 90%;
   }
   main .comeco .texto h1 {
-    transform: scale(1.05);
     font-size: 1.3em;
     line-height: 1em;
   }

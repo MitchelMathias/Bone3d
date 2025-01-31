@@ -81,11 +81,8 @@ main{
             margin: auto;
             max-width: 270px;
             img{
+                padding-top: 1em;
                 width: 100%;
-                transition: 0.5s;
-                &:hover,&:focus,&:active{
-                    transform: scale(1.2);
-                }
             }
             
         }
@@ -98,15 +95,13 @@ main{
             }
             h1{
                 margin: auto;
-                line-height: 0.7em;
+                line-height: 1em;
                 transition: 0.5s;
-                &:hover,&:focus,&:active{
-                    transform: scale(1.2);
                 }
             }
             a{
                 border-radius: 30px;
-                font-size: 1.2em;
+                font-size: 1.5em;
                 font-weight: 900;
                 border: none;
                 background-color: #00d739;
@@ -118,7 +113,6 @@ main{
                     background-color: #00ff44;
                 }
             }
-        }
     }
     .container_inicio{
         background-color: #efefef;
@@ -385,7 +379,6 @@ footer{
             }
             .texto{
                 h1{
-                    transform: scale(1.05);
                     font-size: 1.3em;
                     line-height: 1em;
                 }
