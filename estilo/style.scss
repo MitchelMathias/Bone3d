@@ -69,7 +69,10 @@ header{
 
 main{
     .comeco{
-        display: block;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         overflow: hidden;
         height: 70vh;
         background-image: url(../imagens/banner.png);
@@ -78,7 +81,7 @@ main{
         background-repeat: no-repeat;
         .imag{  
             text-align: center;
-            margin: auto;
+            margin: 0;
             max-width: 270px;
             img{
                 padding-top: 1em;
@@ -88,7 +91,7 @@ main{
         }
         .texto{
             max-width: 90vw;
-            margin: auto;
+            margin: 0;
             color: white;
             strong{
                 color: #00d739;
@@ -100,12 +103,12 @@ main{
                 }
             }
             a{
+                width: 80%;
                 border-radius: 30px;
                 font-size: 1.5em;
                 font-weight: 900;
                 border: none;
                 background-color: #00d739;
-                width: 25%;
                 margin-top: 0.5em;
                 transition: 0.5s;
                 &:hover, &:focus, &:active{

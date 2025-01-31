@@ -57,7 +57,10 @@ header .redes a i:hover {
 }
 
 main .comeco {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
   height: 70vh;
   background-image: url(../imagens/banner.png);
@@ -67,7 +70,7 @@ main .comeco {
 }
 main .comeco .imag {
   text-align: center;
-  margin: auto;
+  margin: 0;
   max-width: 270px;
 }
 main .comeco .imag img {
@@ -76,7 +79,7 @@ main .comeco .imag img {
 }
 main .comeco .texto {
   max-width: 90vw;
-  margin: auto;
+  margin: 0;
   color: white;
 }
 main .comeco .texto strong {
@@ -88,12 +91,12 @@ main .comeco .texto h1 {
   transition: 0.5s;
 }
 main .comeco a {
+  width: 80%;
   border-radius: 30px;
   font-size: 1.5em;
   font-weight: 900;
   border: none;
   background-color: #00d739;
-  width: 25%;
   margin-top: 0.5em;
   transition: 0.5s;
 }
