@@ -250,6 +250,12 @@ main .pag_02 .comentarios .carousel .carousel-item {
 main .pag_02 .comentarios .carousel .carousel-item .img-custom {
   width: 80%;
 }
+main .pag_02 .comentarios .carousel .carousel-item img {
+  transition: 0.3s;
+}
+main .pag_02 .comentarios .carousel .carousel-item img:hover, main .pag_02 .comentarios .carousel .carousel-item img:focus, main .pag_02 .comentarios .carousel .carousel-item img:active {
+  transform: scale(1.1);
+}
 main .pag_02 .comentarios .carousel button span {
   border-radius: 5px;
   background-color: #BB0000;

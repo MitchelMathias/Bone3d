@@ -275,6 +275,12 @@ main{
                     .img-custom{
                         width: 80%;
                     }
+                    img{
+                        transition: 0.3s;
+                        &:hover,&:focus,&:active{
+                            transform: scale(1.1);
+                        }
+                    }
                 }
                 button{
                     span{
