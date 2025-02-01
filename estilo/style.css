@@ -349,6 +349,11 @@ footer a:hover, footer a:focus, footer a:active {
   }
 }
 @media screen and (min-width: 770px) {
+  .comentarios .img-custom {
+    width: 47% !important;
+  }
+}
+@media screen and (max-width: 770px) {
   main .comeco .imag img {
     margin: auto;
     width: 90%;
@@ -360,8 +365,5 @@ footer a:hover, footer a:focus, footer a:active {
   main .comeco .texto a {
     font-size: 0.8em;
     width: 50%;
-  }
-  main .comentarios .img-custom {
-    width: 47% !important;
   }
 }/*# sourceMappingURL=style.css.map */

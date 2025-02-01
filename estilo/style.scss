@@ -408,6 +408,14 @@ footer{
 }
 
 @media screen and (min-width:770px){
+    .comentarios{
+        .img-custom {
+            width: 47% !important;
+        }
+    }
+}
+
+@media screen and (max-width:770px){
     main{
         .comeco{
             .imag{  
@@ -425,11 +433,6 @@ footer{
                     font-size: .8em; //
                     width: 50%; //
                 }
-            }
-        }
-        .comentarios{
-            .img-custom {
-                width: 47% !important;
             }
         }
     }
