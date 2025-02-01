@@ -209,7 +209,6 @@ main .pag_02 .fotos .todas_div div img {
   transition: 1s;
 }
 main .pag_02 .fotos .todas_div div img:hover, main .pag_02 .fotos .todas_div div img:focus, main .pag_02 .fotos .todas_div div img:active {
-  transform: scale(1.2);
   filter: brightness(1.5);
   transform: scale(1.05);
 }
@@ -240,6 +239,23 @@ main .pag_02 .tipos .container_div img {
 }
 main .pag_02 .tipos .container_div img:hover {
   transform: scale(1.1);
+}
+main .pag_02 .comentarios h1 {
+  font-weight: 800;
+  color: #BB0000;
+}
+main .pag_02 .comentarios .carousel .carousel-item {
+  transition: transform 2.5s ease, opacity 1.5s ease;
+}
+main .pag_02 .comentarios .carousel .carousel-item .img-custom {
+  width: 80%;
+}
+main .pag_02 .comentarios .carousel button span {
+  border-radius: 5px;
+  background-color: #BB0000;
+}
+main .pag_02 .comentarios .carousel button .carousel-control-prev {
+  justify-content: start !important;
 }
 main .pag_02 .duvidas article > h1 strong {
   color: #BB0000;
@@ -322,8 +338,11 @@ footer a:hover, footer a:focus, footer a:active {
   header .container_divs .menu nav ul li a:hover {
     text-decoration: none;
   }
+  main .pag_02 .comentarios .img-custom {
+    width: 25% !important;
+  }
 }
-@media screen and (max-width: 770px) {
+@media screen and (min-width: 770px) {
   main .comeco .imag img {
     margin: auto;
     width: 90%;
@@ -335,5 +354,8 @@ footer a:hover, footer a:focus, footer a:active {
   main .comeco .texto a {
     font-size: 0.8em;
     width: 50%;
+  }
+  main .comentarios .img-custom {
+    width: 47% !important;
   }
 }/*# sourceMappingURL=style.css.map */

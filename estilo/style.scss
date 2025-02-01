@@ -227,7 +227,6 @@ main{
                         border-radius: 15px;
                         transition: 1s;
                         &:hover, &:focus, &:active{
-                            transform: scale(1.2);
                             filter: brightness(1.5);
                             transform: scale(1.05);
                         }
@@ -261,6 +260,29 @@ main{
                     transition: 0.5s;
                     &:hover{
                         transform: scale(1.1);
+                    }
+                }
+            }
+        }
+        .comentarios{
+            h1{
+                font-weight: 800;
+                color: $cor5;
+            }
+            .carousel{
+                .carousel-item{
+                    transition: transform 2.5s ease, opacity 1.5s ease;
+                    .img-custom{
+                        width: 80%;
+                    }
+                }
+                button{
+                    span{
+                        border-radius: 5px;
+                        background-color: #BB0000;
+                    }
+                    .carousel-control-prev{
+                        justify-content: start !important;
                     }
                 }
             }
@@ -368,9 +390,18 @@ footer{
             }
         }
     }
+    main{
+        .pag_02{
+            .comentarios{
+                .img-custom {
+                    width: 25% !important;
+                }
+            }
+        }
+    }
 }
 
-@media screen and (max-width:770px){
+@media screen and (min-width:770px){
     main{
         .comeco{
             .imag{  
@@ -388,6 +419,11 @@ footer{
                     font-size: .8em; //
                     width: 50%; //
                 }
+            }
+        }
+        .comentarios{
+            .img-custom {
+                width: 47% !important;
             }
         }
     }
