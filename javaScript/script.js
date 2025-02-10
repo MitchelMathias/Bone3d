@@ -5,7 +5,7 @@ $(document).ready(function(){
     carregarModelo('01_trucker');
     configurarInteracoes();
     $('#logo_frente, #logo_direito, #logo_esquerdo, #logo_tras').on('change', function() {
-        aplicarAlteracoes(); // Atualiza o modelo quando um arquivo é selecionado
+        aplicarAlteracoes();
     });
 });
 
@@ -114,11 +114,18 @@ function configurarInteracoes() {
 function aplicarAlteracoes() {
     if (!modelo_atual) return;
 
+    const cores = {
+        corpo: $('input[name="cor_do_corpo"]:checked').val(),
+        frente: $('input[name="cor_da_frente"]:checked').val(),
+        aba_cima: $('input[name="aba_cima"]:checked').val(),
+        aba_baixo: $('input[name="aba_baixo"]:checked').val()
+    };
+
     const logos = {
-        logo_frente: $('#logo_frente')[0].files[0],
-        logo_esquerdo: $('#logo_esquerdo')[0].files[0],
-        logo_direito: $('#logo_direito')[0].files[0],
-        logo_tras: $('#logo_tras')[0].files[0]
+        logo_frente: $('#logo_frente')[0]?.files[0],
+        logo_esquerdo: $('#logo_esquerdo')[0]?.files[0],
+        logo_direito: $('#logo_direito')[0]?.files[0],
+        logo_tras: $('#logo_tras')[0]?.files[0]
     };
 
     const loader = new THREE.TextureLoader();
@@ -143,7 +150,7 @@ function aplicarAlteracoes() {
             console.log(`Nenhum arquivo selecionado para ${logoNome}`);
         }
     });
-    
+
     modelo_atual.traverse((obj) => {
         if (obj.isMesh) {
             const parte = Object.keys(cores).find((p) => obj.name.includes(p));
