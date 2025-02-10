@@ -155,8 +155,14 @@ function aplicarAlteracoes() {
         if (obj.isMesh) {
             const parte = Object.keys(cores).find((p) => obj.name.includes(p));
             if (parte && cores[parte]) {
-                obj.material.color.set(cores[parte]);
-                console.log(`Cor aplicada em ${obj.name}: ${cores[parte]}`);
+                // Se o objeto NÃO tem textura aplicada, podemos mudar a cor
+                if (!obj.material.map) { 
+                    obj.material.color.set(new THREE.Color(cores[parte]));
+                    obj.material.needsUpdate = true;
+                    console.log(`Cor aplicada em ${obj.name}: ${cores[parte]}`);
+                } else {
+                    console.log(`Ignorando cor em ${obj.name}, pois tem textura.`);
+                }
             }
         }
     });
