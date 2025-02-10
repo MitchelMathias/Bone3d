@@ -4,6 +4,9 @@ $(document).ready(function(){
     criarCena();
     carregarModelo('01_trucker');
     configurarInteracoes();
+    $('#logo_frente, #logo_direito, #logo_esquerdo, #logo_tras').on('change', function() {
+        aplicarAlteracoes(); // Atualiza o modelo quando um arquivo é selecionado
+    });
 });
 
 function criarCena() {
@@ -62,7 +65,7 @@ function carregarModelo(tipo) {
     }
 
     $('input[name="cor_do_corpo"], input[name="cor_da_frente"], input[name="aba_cima"], input[name="aba_baixo"]').prop('checked', false);
-    $('input[name="logo"]').val('');
+    $('input[name="logo_frente"], input[name="logo_tras"], input[name="logo_esquerdo"], input[name="logo_direito"]').val('');
 
     const loader = new THREE.GLTFLoader();
     loader.load(`../models/${tipo}.glb`,
@@ -111,33 +114,46 @@ function configurarInteracoes() {
 function aplicarAlteracoes() {
     if (!modelo_atual) return;
 
-    const cores = {
-        corpo: $('input[name="cor_do_corpo"]:checked').val(),
-        frente: $('input[name="cor_da_frente"]:checked').val(),
-        aba_cima: $('input[name="aba_cima"]:checked').val(),
-        aba_baixo: $('input[name="aba_baixo"]:checked').val()
+    const logos = {
+        logo_frente: $('#logo_frente')[0].files[0],
+        logo_esquerdo: $('#logo_esquerdo')[0].files[0],
+        logo_direito: $('#logo_direito')[0].files[0],
+        logo_tras: $('#logo_tras')[0].files[0]
     };
 
-    const logoArquivo = $('input[name="logo"]')[0].files[0];
-    if (logoArquivo) {
-        cores.logo = URL.createObjectURL(logoArquivo);
-    }
+    const loader = new THREE.TextureLoader();
 
-    modelo_atual.traverse(function(obj) {
-        if (obj.isMesh) {
-            const parte = Object.keys(cores).find(p => obj.name.includes(p));
-            if (parte && cores[parte]) {
-                if (parte === 'logo') {
-                    const loader = new THREE.TextureLoader();
-                    loader.load(cores[parte], textura => {
+    Object.entries(logos).forEach(([logoNome, logoArquivo]) => {
+        if (logoArquivo) {
+            const logoURL = URL.createObjectURL(logoArquivo);
+            loader.load(logoURL, (textura) => {
+                textura.repeat.x = -1;
+                textura.offset.x = 1;
+                modelo_atual.traverse((obj) => {
+                    if (obj.isMesh && obj.name === logoNome) {
                         obj.material.map = textura;
                         obj.material.needsUpdate = true;
-                    });
-                } else {
-                    obj.material.color.set(cores[parte]);
-                }
-                obj.visible = true;
+                        obj.visible = true;
+                        console.log(`Logo aplicado em ${obj.name}`);
+                    }
+                });
+                renderer.render(scene, camera);
+            });
+        } else {
+            console.log(`Nenhum arquivo selecionado para ${logoNome}`);
+        }
+    });
+    
+    modelo_atual.traverse((obj) => {
+        if (obj.isMesh) {
+            const parte = Object.keys(cores).find((p) => obj.name.includes(p));
+            if (parte && cores[parte]) {
+                obj.material.color.set(cores[parte]);
+                console.log(`Cor aplicada em ${obj.name}: ${cores[parte]}`);
             }
         }
     });
 }
+
+
+

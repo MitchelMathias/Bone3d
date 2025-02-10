@@ -25,14 +25,16 @@
                             <li class="py-2 my-1"><a href="#">Produtos</a></li>
                             <li class="py-2 my-1"><a href="#">Catálogo</a></li>
                             <li class="py-2 my-1"><a href="#">Orçamento</a></li>
-                            <li class="py-2 my-1"><a href="#">Personalize seu Cap</a></li>
                         </ul>
                     </nav>
                 </article>
-                <article class="redes d-flex">
-                    <a target="_blank" href="https://wa.me/554135678114"><i class="bi bi-whatsapp"></i></a>
-                    <a target="_blank" href="https://www.facebook.com/people/Cap-e-Arte-Bordados/100088458332487/?mibextid=LQQJ4d554135678114"><i class="bi bi-facebook"></i></a>
-                    <a target="_blank" href="https://www.instagram.com/capeartebordados?igshid=YmMyMTA2M2Y%3D"><i class="bi bi-instagram"></i></a>
+                <article>
+                    <a class="w-100 btn btn-primary mt-3 mt-md-0 fw-bold" href="/paginas/personalize.html">Personalize seu Cap</a>
+                    <div class="redes d-flex justify-content-center m-2">
+                        <a target="_blank" href="https://wa.me/554135678114"><i class="bi bi-whatsapp"></i></a>
+                        <a target="_blank" href="https://www.facebook.com/people/Cap-e-Arte-Bordados/100088458332487/?mibextid=LQQJ4d554135678114"><i class="bi bi-facebook"></i></a>
+                        <a target="_blank" href="https://www.instagram.com/capeartebordados?igshid=YmMyMTA2M2Y%3D"><i class="bi bi-instagram"></i></a>
+                    </div>
                 </article>
             </section>
         </div>
@@ -103,8 +105,20 @@
                                 <input value="rgb(255, 0, 0)" type="radio" name="aba_baixo" class="vermelho" id="aba_baixo">
                             </div>
                             <div class="my-2">
-                                <label class="form-label w-100" for="logo">Envie o Arquivo com sua logo:</label>
-                                <input class="form-control" type="file" name="logo" id="logo">
+                                <label class="form-label w-100" for="logo_frente">Logo Frontal</label>
+                                <input class="form-control" type="file" name="logo_frente" id="logo_frente">
+                            </div>
+                            <div class="my-2">
+                                <label class="form-label w-100" for="logo_direito">Logo lateral Direita:</label>
+                                <input class="form-control" type="file" name="logo_direito" id="logo_direito">
+                            </div>
+                            <div class="my-2">
+                                <label class="form-label w-100" for="logo_esquerdo">Logo lateral Esquerda:</label>
+                                <input class="form-control" type="file" name="logo_esquerdo" id="logo_esquerdo">
+                            </div>
+                            <div class="my-2">
+                                <label class="form-label w-100" for="logo_tras">Logo Traseira</label>
+                                <input class="form-control" type="file" name="logo_tras" id="logo_tras">
                             </div>
                             <textarea class="rounded-2 w-100" id="detalhes" placeholder="Digite os detalhes aqui"></textarea>
                             <button type="submit" class="btn btn-primary">Enviar</button>

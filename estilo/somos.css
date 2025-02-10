@@ -44,15 +44,26 @@ header .menu nav li:hover, header .menu nav li:focus {
 header .menu nav li:hover a, header .menu nav li:focus a {
   color: black;
 }
-header .redes {
+header article .btn.btn-primary {
+  width: 170px !important;
+  border: none;
+  background-color: #00d739;
+  transition: 0.5s;
+}
+header article .btn.btn-primary:hover, header article .btn.btn-primary:focus, header article .btn.btn-primary:active {
+  transform: scale(1.1);
+  border: none;
+  background-color: #00d739;
+}
+header article .redes {
   margin: 1.3em 0;
 }
-header .redes a i {
+header article .redes a i {
   font-size: 1.3em;
   color: white;
   margin: 5px;
 }
-header .redes a i:hover {
+header article .redes a i:hover {
   color: #BB0000;
 }
 
