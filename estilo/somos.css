@@ -70,6 +70,9 @@ header article .redes a i:hover {
 main {
   background-color: #efefef;
 }
+main p {
+  text-align: justify;
+}
 main .banner {
   max-height: 60vh;
   width: 100%;
