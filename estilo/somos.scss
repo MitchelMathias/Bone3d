@@ -81,6 +81,16 @@ header{
 }
 
 main{
+    .banner{
+        max-height: 60vh;
+        width: 100%;
+        object-fit: cover;
+    }
+    .maquinas{
+        img{
+            max-height:400px ;
+        }
+    }
     background-color: $cor6;
     .quem_somos{
         .fotos{

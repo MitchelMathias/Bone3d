@@ -70,6 +70,15 @@ header article .redes a i:hover {
 main {
   background-color: #efefef;
 }
+main .banner {
+  max-height: 60vh;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+main .maquinas img {
+  max-height: 400px;
+}
 main .quem_somos .fotos {
   max-width: 75vw;
   margin: auto;
