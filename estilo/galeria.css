@@ -67,19 +67,6 @@ header article .redes a i:hover {
   color: #BB0000;
 }
 
-main img {
-  max-height: 400px;
-  border-radius: 10px;
-  transition: all ease 1s;
-}
-main img:hover, main img:focus, main img:active {
-  filter: brightness(1.5);
-  transform: scale(1.03);
-}
-main .btn.btn-primary {
-  max-width: 150px;
-}
-
 footer {
   background-color: #000000;
   color: white;
@@ -119,6 +106,19 @@ footer a {
 footer a:hover, footer a:focus, footer a:active {
   color: #BB0000;
   text-decoration: underline;
+}
+
+main img {
+  max-height: 400px;
+  border-radius: 10px;
+  transition: all ease 1s;
+}
+main img:hover, main img:focus, main img:active {
+  filter: brightness(1.5);
+  transform: scale(1.03);
+}
+main .btn.btn-primary {
+  max-width: 150px;
 }
 
 @media screen and (min-width: 992px) {
