@@ -13,7 +13,7 @@
         <div class="row m-auto container">
             <section class="col-12 d-flex flex-column flex-md-row flex-lg-row align-items-center justify-content-lg-between justify-content-md-between container_divs">
                 <article class="logo">
-                    <img class="img-fluid" src="../imagens/logo.png" alt="">
+                    <img class="img-fluid" src="../imagens/logo.png" alt="Logo Cap&Art">
                 </article>
                 <article class="menu navbar-expand-lg"> 
                     <button class="navbar navbar-toggler d-block m-auto my-2 d-lg-none" data-bs-target=".navbar-collapse" data-bs-toggle="collapse">
@@ -43,7 +43,7 @@
     <main>
         <section class="comeco">
             <article class="imag">
-                <img class="d-block"  src="../imagens/bone.png" alt="">
+                <img class="d-block"  src="../imagens/bone.png" alt="Bone personalize sua logo">
             </article>
             <article class="text-center texto">
                 <h1><strong>Bonés Personalizados</strong></h1>
@@ -57,7 +57,7 @@
                 <div class="div_borda">
                     <section class="scroll_interno">
                         <h2 class="text-center my-2">Personalize seu Boné</h2>
-                        <form id="formulario" method="post" class="m-3" action="../api/formulario.php">
+                        <form id="formulario" method="post" class="m-3" action="../api/formulario.php" enctype="multipart/form-data">
                             <div class="d-flex justify-content-start align-items-center mb-2">
                                 <label for="fecho">Tipo de Fecho:</label>
                                 <select class=" form-select" name="fecho" id="fecho">
@@ -68,7 +68,7 @@
                             </div>
                             <div class="d-flex justify-content-start align-items-center mb-2">
                                 <label for="tipo_bone">Tipo de Bone:</label>
-                                <select title="Escolha" class=" form-select" id="tipo_bone">
+                                <select title="Escolha" class=" form-select" id="tipo_bone" name="tipo_bone">
                                     <option value="01_trucker">Trucker</option>
                                     <option value="02_americano">Americano</option>
                                     <option value="03_aba_reta">Aba Reta</option>
@@ -80,7 +80,7 @@
                             <div class="mb-1 corpo d-flex align-items-center">
                                 <label for="cor_do_corpo">Cor do Corpo:</label>
                                 <input value="rgb(0, 0, 0)" type="radio" name="cor_do_corpo" id="cor_do_corpo" class="preto">
-                                <input value="rgb(245, 245, 220)" type="radio" name="cor_do_corpo" id="cor_do_corpo" class="bage">
+                                <input value="rgb(245, 245, 220)" type="radio" name="cor_do_corpo" id="cor_do_corpo" class="bege">
                                 <input value="rgb(0, 123, 255)" type="radio" name="cor_do_corpo" id="cor_do_corpo" class="azul">
                                 <input value="rgb(255, 0, 0)" type="radio" name="cor_do_corpo" id="cor_do_corpo" class="vermelho">
                             </div>
@@ -94,14 +94,14 @@
                             <div class="mb-1 aba_cima d-flex align-items-center">
                                 <label for="aba_cima">Aba Cima:</label>
                                 <input value="rgb(0, 0, 0)" type="radio" name="aba_cima" class="preto" id="aba_cima">
-                                <input value="rgb(245, 245, 220)" type="radio" name="aba_cima" class="bage" id="aba_cima">
+                                <input value="rgb(245, 245, 220)" type="radio" name="aba_cima" class="bege" id="aba_cima">
                                 <input value="rgb(0, 123, 255)" type="radio" name="aba_cima" class="azul" id="aba_cima">
                                 <input value="rgb(255, 0, 0)" type="radio" name="aba_cima" class="vermelho" id="aba_cima">
                             </div>
                             <div class="mb-1 aba_baixo d-flex align-items-center">
                                 <label for="aba_baixo">Aba Baixo:</label>
                                 <input value="rgb(0, 0, 0)" type="radio" name="aba_baixo" class="preto" id="aba_baixo">
-                                <input value="rgb(245, 245, 220)" type="radio" name="aba_baixo" class="bage" id="aba_baixo">
+                                <input value="rgb(245, 245, 220)" type="radio" name="aba_baixo" class="bege" id="aba_baixo">
                                 <input value="rgb(0, 123, 255)" type="radio" name="aba_baixo" class="azul" id="aba_baixo">
                                 <input value="rgb(255, 0, 0)" type="radio" name="aba_baixo" class="vermelho" id="aba_baixo">
                             </div>
@@ -121,7 +121,7 @@
                                 <label class="form-label w-100" for="logo_tras">Logo Traseira</label>
                                 <input class="form-control" type="file" name="logo_tras" id="logo_tras">
                             </div>
-                            <textarea class="rounded-2 w-100" id="detalhes" placeholder="Digite os detalhes aqui"></textarea>
+                            <textarea class="rounded-2 w-100" name="detalhes" id="detalhes" placeholder="Digite os detalhes aqui"></textarea>
                             <button type="submit" class="btn btn-primary">Enviar</button>
                             <button id="apagar" type="reset" class="btn btn-primary">Apagar</button>
                         </form>
@@ -139,9 +139,9 @@
         <section class="row m-auto maps align-items-center p-5">
             <article class="col-lg-6 col-md-6 col-12">
                 <div class="container text">
-                    <h3>Espaço Fisico</h3>
+                    <h3>Direitos Reservados</h3>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut at illo consequuntur optio eum alias a minus quas blanditiis recusandae doloribus, accusamus, facere perspiciatis cumque magni expedita architecto dicta praesentium?
+                        © 2025 por CAP E ARTE BORDADOS - CNPJ: 48.108.292/0001-07 . Todos os direitos reservados. Nenhuma parte deste site pode ser reproduzida ou transmitida de qualquer forma ou por qualquer meio, incluindo fotocópia, gravação ou quaisquer sistemas de armazenamento e recuperação de informação, sem permissão por escrito do proprietário.
                     </p>
                 </div>
             </article>
@@ -151,7 +151,7 @@
         </section>
         <section class="row container m-auto p-3 d-flex justify-content-lg-between align-items-center">
             <article class="col-12 col-lg-6 text-center text-lg-start">
-                <img src="../imagens/logo.png" alt="">
+                <img src="imagens/logo.png" alt="Logo Cap&Art">
                 <p>Fazemos qualquer quantidade de bonés personalizados para o seu evento!</p>
                 <div class="redes d-flex justify-content-center justify-content-lg-start">
                     <a target="_blank" href="https://wa.me/554135678114"><i class="bi bi-whatsapp"></i></a>
@@ -167,7 +167,7 @@
             </article>
         </section>
         <hr class="container">
-        <p class="text-center m-0 pb-3">&copy;Copyright 2025 Cap&arte – Todos direitos reservados por CWD Code Brasil</p>
+        <p class="text-center m-0 pb-3">&copy;Copyright 2025 Cap&arte – Todos direitos reservados por CWB Code Tech</p>
     </footer>
     <script src="../lib/three.min.js"></script>
     <script src="../lib/GLTFLoader.js"></script>
