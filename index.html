@@ -25,18 +25,31 @@
     </script>
     <!-- Event snippet for Botão WhatsApp conversion page -->
     <script>
-        function gtag_report_conversion(url) {
-        var callback = function () {
-            if (typeof(url) != 'undefined') {
-                window.open(url, '_blank');
-            }
-        };
-        gtag('event', 'conversion', {
-            'send_to': 'AW-11045363909/h9n6CKieuJ8aEMXB65Ip',
-            'event_callback': callback
+        document.addEventListener('DOMContentLoaded', function() {
+          const isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+          
+          document.querySelectorAll('.whatsapp-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+              // Dispara o tracking SEM bloquear o redirecionamento
+              if(typeof gtag === 'function') {
+                gtag('event', 'conversion', {
+                  'send_to': this.dataset.conversionId,
+                  'event_callback': () => {
+                    if(isiOS) {
+                      window.location.href = this.href; // Força abertura no app
+                    }
+                  }
+                });
+              }
+              
+              // Fallback para iOS
+              if(isiOS) {
+                e.preventDefault();
+                window.location.href = this.href;
+              }
+            });
+          });
         });
-        return false;
-        }
     </script>
 </head>
 <body id="inicio">
@@ -56,14 +69,14 @@
                             <li class="py-2 my-1"><a href="/paginas/somos.html">Quem Somos</a></li>
                             <li class="py-2 my-1"><a href="paginas/produtos.html">Produtos</a></li>
                             <li class="py-2 my-1"><a href="paginas/galeria.html">Galeria</a></li>
-                            <li class="py-2 my-1"><a target="_external" href="https://wa.me/554135678114" onclick="return gtag_report_conversion('https://wa.me/554135678114')">Orçamento</a></li>
+                            <li class="py-2 my-1"><a target="_blank" href="https://api.whatsapp.com/send?phone=554135678114" data-conversion-id="AW-11045363909/h9n6CKieuJ8aEMXB65Ip">Orçamento</a></li>
                         </ul>
                     </nav>
                 </article>
                 <article>
                     <a class="w-100 btn btn-primary mt-3 mt-md-0 fw-bold" href="/paginas/personalize.html">Personalize seu Cap</a>
                     <div class="redes d-flex justify-content-center m-2">
-                        <a target="_blank" href="https://wa.me/554135678114" onclick="return gtag_report_conversion('https://wa.me/554135678114')"><i class="bi bi-whatsapp"></i></a>
+                        <a target="_blank" href="https://api.whatsapp.com/send?phone=554135678114" data-conversion-id="AW-11045363909/h9n6CKieuJ8aEMXB65Ip"><i class="bi bi-whatsapp"></i></a>
                         <a target="_blank" href="https://www.facebook.com/people/Cap-e-Arte-Bordados/100088458332487/?mibextid=LQQJ4d554135678114"><i class="bi bi-facebook"></i></a>
                         <a target="_blank" href="https://www.instagram.com/capeartebordados?igshid=YmMyMTA2M2Y%3D"><i class="bi bi-instagram"></i></a>
                     </div>
@@ -80,7 +93,7 @@
                 <h1><strong>Bonés Personalizados</strong></h1>
                 <h1>de alta qualidade com a marca da</h1>
                 <h1><strong>sua empresa</strong></h1>
-                <a href="https://wa.me/554135678114" class="btn btn-primary py-3"  target="_blank" onclick="return gtag_report_conversion('https://wa.me/554135678114')">SOLICITAR ORÇAMENTO</a>
+                <a href="https://api.whatsapp.com/send?phone=554135678114" data-conversion-id="AW-11045363909/h9n6CKieuJ8aEMXB65Ip" class="btn btn-primary py-3"  target="_blank">SOLICITAR ORÇAMENTO</a>
             </article>
         </section>
         <div class="container_inicio p-3 p-lg-5">
@@ -91,7 +104,7 @@
                         <h1>Bonés <strong>Exclusivos</strong> <br>do seu jeito</h1>
                         <p>Somos especialistas em bordados, O seu boné personalizado do seu jeito! Faça o seu orçamento ainda hoje.</p>
                     </div>
-                    <a target="_blank" href="https://wa.me/554135678114" class="btn btn-primary p-3 rounded-3" onclick="return gtag_report_conversion('https://wa.me/554135678114')">Faça o Orçamento</a>
+                    <a target="_blank" href="https://api.whatsapp.com/send?phone=554135678114" data-conversion-id="AW-11045363909/h9n6CKieuJ8aEMXB65Ip" class="btn btn-primary p-3 rounded-3">Faça o Orçamento</a>
                 </article>
                 <article class="col-lg-4 col-12 p-0 inicio_img">
                     <div class="carousel slide" data-bs-ride="carousel">
@@ -166,7 +179,7 @@
             </section>
             <section class="container text-center my-5 p-3 p-lg-5 induz_compra">
                 <h1>Faça seu orçamento</h1>
-                <a target="_blank" href="https://wa.me/554135678114" class="btn btn-primary d-block m-auto p-3 my-4" onclick="return gtag_report_conversion('https://wa.me/554135678114')">APROVEITE A PROMOÇÃO</a>
+                <a target="_blank" href="https://api.whatsapp.com/send?phone=554135678114" data-conversion-id="AW-11045363909/h9n6CKieuJ8aEMXB65Ip" class="btn btn-primary d-block m-auto p-3 my-4">APROVEITE A PROMOÇÃO</a>
             </section>
             <section class="row m-auto my-5 vamo_pedir">
                 <article class="col-12 text-center my-5">
@@ -340,7 +353,7 @@
                             </div>
                         </div>
                         <h1 class="text-center mt-5">Faça seu orçamento!</h1>
-                        <a target="_blank" href="https://wa.me/554135678114" class="btn btn-primary p-3 d-block m-auto my-5" onclick="return gtag_report_conversion('https://wa.me/554135678114')">Fazer Orçamento</a>
+                        <a target="_blank" href="https://api.whatsapp.com/send?phone=554135678114" data-conversion-id="AW-11045363909/h9n6CKieuJ8aEMXB65Ip" class="btn btn-primary p-3 d-block m-auto my-5">Fazer Orçamento</a>
                     </div>
                 </article>
             </section>
@@ -365,14 +378,14 @@
                 <img src="imagens/logo.png" alt="Logo  Cap e Arte">
                 <p>Fazemos qualquer quantidade de bonés personalizados para o seu evento!</p>
                 <div class="redes d-flex justify-content-center justify-content-lg-start">
-                    <a target="_blank" href="https://wa.me/554135678114" onclick="return gtag_report_conversion('https://wa.me/554135678114')"><i class="bi bi-whatsapp"></i></a>
+                    <a target="_blank" href="https://api.whatsapp.com/send?phone=554135678114" data-conversion-id="AW-11045363909/h9n6CKieuJ8aEMXB65Ip"><i class="bi bi-whatsapp"></i></a>
                     <a target="_blank" href="https://www.facebook.com/people/Cap-e-Arte-Bordados/100088458332487/?mibextid=LQQJ4d554135678114"><i class="bi bi-facebook"></i></a>
                     <a target="_blank" href="https://www.instagram.com/capeartebordados?igshid=YmMyMTA2M2Y%3D"><i class="bi bi-instagram"></i></a>
                 </div>
             </article>
             <article class="col-12 col-lg-6 text-center text-lg-end">
                 <h4>Informações de Contato</h4>
-                <p><a target="_blank" href="https://wa.me/554135678114" onclick="return gtag_report_conversion('https://wa.me/554135678114')"><i class="bi bi-whatsapp"></i> 55 41 35678114</a></p>
+                <p><a target="_blank" href="https://api.whatsapp.com/send?phone=554135678114" data-conversion-id="AW-11045363909/h9n6CKieuJ8aEMXB65Ip"><i class="bi bi-whatsapp"></i> 55 41 35678114</a></p>
                 <p>Pedro Zagonel, 853 - Novo Mundo, 81050-110
                     Curitiba - PR</p>
             </article>
@@ -382,24 +395,24 @@
     </footer>
     <script src="lib/bootstrap.bundle.min.js"></script>
     <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Cap&Arte",
-    "image": "https://www.capearte.com.br/imagens/logo.png",
-    "description": "Bonés personalizados de alta qualidade em Curitiba.",
-    "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "R. Pedro Zagonel, 853",
-        "addressLocality": "Curitiba",
-        "addressRegion": "PR",
-        "postalCode": "81050-110",
-        "addressCountry": "BR"
-    },
-    "telephone": "+554135678114",
-    "openingHours": "Mo-Fr 09:00-18:00",
-    "url": "https://www.capearte.com.br"
-}
-</script>
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Cap&Arte",
+        "image": "https://www.capearte.com.br/imagens/logo.png",
+        "description": "Bonés personalizados de alta qualidade em Curitiba.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "R. Pedro Zagonel, 853",
+            "addressLocality": "Curitiba",
+            "addressRegion": "PR",
+            "postalCode": "81050-110",
+            "addressCountry": "BR"
+        },
+        "telephone": "+554135678114",
+        "openingHours": "Mo-Fr 09:00-18:00",
+        "url": "https://www.capearte.com.br"
+    }
+    </script>
 </body>
 </html>
